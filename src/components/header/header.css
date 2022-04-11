@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'Hero';
+    src: local('Hero Light'), local('Hero-Light'), url('/public/fonts/Heroregular.woff2') format('woff2'), url('/public/fonts/Heroregular.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+}
+header {
+    width: 1440px;
+    height: 80px;
+    display: flex;
+    padding: 15px 80px;
+    align-items: center;
+    font-family: "Hero";
+}
+li {
+    list-style: none;
+}
+.header__right {
+    display: flex;
+    justify-content: center;
+}
+.header__navigation {
+    display: flex;
+    font-size: 24px;
+}
+.header__logo {
+    margin-right: 130px;
+}
+.header__right li{
+    font-size: 20px;
+}
+#balance {
+    font-size: 16px;
+}
+.header__navigation p {
+    padding-right: 130px;
+}
+.header__right img {
+    margin-top: 16px;
+    margin-left: 15px;
+}
+.header__cart {
+    margin-left: 56px;
+}
+.yellow {
+    color: #F2CB05;
+}
