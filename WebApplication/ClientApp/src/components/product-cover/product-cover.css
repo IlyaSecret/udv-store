@@ -1,0 +1,7 @@
+.product-cover {
+    height: 550px;
+    width: 400px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+}

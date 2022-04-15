@@ -4,15 +4,14 @@ import { useNavigate } from "react-router";
 import { CatalogItemCover } from "../catalog-item-cover/catalog-item-cover";
 import { URLS } from "../../utils/URLS";
 import './catalog-item.css'
-import { setCurrentProduct } from "../../redux/products/product-reducer";
-
+import { setCurrentProduct } from "../../redux/products/reducer";
 
 export const CatalogItem = ({product} : {product:any}) => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const handleClick = () => {
-        dispatch(setCurrentProduct(product))
+        dispatch(setCurrentProduct({product}))
         navigate(`/catalog/${URLS.cap}`);
     }
 

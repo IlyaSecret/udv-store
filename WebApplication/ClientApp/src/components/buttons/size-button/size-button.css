@@ -1,0 +1,13 @@
+.size-button {
+    margin-right: 15px;  
+    font-family: 'Hero';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 38px;
+    width: 55px;
+    height: 55px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
