@@ -1,19 +1,26 @@
+import { Provider } from 'react-redux';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import './App.css';
 import { Header } from './components/header/header';
-import Logo from './components/logo/logo';
-import { CatalogPage } from './pages/catalog-page';
+import { CartPage } from './pages/cart-page/cart-page';
+import { CatalogPage } from './pages/catalog-page/catalog-page';
+import { OrdersPage } from './pages/orders-page/orders-page';
+import { store } from './redux/store';
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Header />  
-        <Routes>   
-        <Route path='/' element={<CatalogPage />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+        <Provider store={store}>
+        <BrowserRouter>
+          <div className="App">
+            <Header />  
+            <Routes>   
+            <Route path='/catalog' element={<CatalogPage />} />
+            <Route path='/orders' element={<OrdersPage />}></Route>
+            <Route path='/cart' element={<CartPage />}></Route>
+            </Routes>
+          </div>
+        </BrowserRouter>
+        </Provider>
   );
 }
 
