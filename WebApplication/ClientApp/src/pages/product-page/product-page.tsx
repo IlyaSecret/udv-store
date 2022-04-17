@@ -2,13 +2,21 @@ import React from "react";
 import { GreenRegularButton } from "../../components/buttons/green-regular-button/green-regular-button";
 import "./product-page.css";
 import { SizeButtons } from '../../components/buttons/size-button/size-button';
-import { useSelector, RootStateOrAny } from 'react-redux';
-import { CatalogItemCover } from "../../components/catalog-item-cover/catalog-item-cover";
+import { useSelector, RootStateOrAny, useDispatch } from 'react-redux';
 import { ProductCover } from "../../components/product-cover/product-cover";
+import {setProductInCart, deleteProductFromCart} from "../../redux/cart/reducer";
 
  
 export const ProductPage = () => {
+
+    const cart = useSelector((state: RootStateOrAny) => state.cart.itemsInCart);
+    const dispatch = useDispatch();
     const products = useSelector((state : RootStateOrAny)=> state.products.currentProduct.product)
+    
+    const handleClick = () => {
+        dispatch(setProductInCart(products))
+    }
+
     return (
         <div className="product-page">
             <div className="product-page__head">
@@ -30,8 +38,8 @@ export const ProductPage = () => {
                         <div className="size">Размер:</div>
                         <SizeButtons />
                     </div>
-                    <div className="product-page__inCartButton">
-                        <GreenRegularButton value="Добавить в корзину"></GreenRegularButton>
+                    <div className="product-page__inCartButton" onClick={ handleClick }>
+                        <GreenRegularButton value="Добавить в корзину" ></GreenRegularButton>
                     </div>
                 </div>
             

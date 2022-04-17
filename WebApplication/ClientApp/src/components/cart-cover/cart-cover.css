@@ -1,0 +1,7 @@
+.cart-cover {
+    height: 250px;
+    width: 220px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+}
