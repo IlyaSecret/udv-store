@@ -1,0 +1,28 @@
+.cart-page__container {
+    width: 700px;
+    background-color: #444242;
+    box-sizing: border-box;
+    padding: 10px 30px;
+    border-radius: 12px;
+    max-height: 820px;
+    overflow-y: auto;
+}
+.cart-page__container::-webkit-scrollbar {
+    background-color: #444242;
+}
+.cart-page__container-title {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    margin-bottom: 30px;
+    align-items: center;
+}
+.cart-page__container-title p {
+    font-size: 35px;
+}
+.clear-cart {
+    color: #B7B7B7;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}

@@ -11,9 +11,12 @@ const cartSlice = createSlice({
     },
     deleteProductFromCart: (state, action) => {
         state.itemsInCart = state.itemsInCart.filter(el => el.id != action.payload);
+    },
+    clearCartItems: (state, action) => {
+      state.itemsInCart = [];
     }
   }
 });
 
-export const { setProductInCart,  deleteProductFromCart} = cartSlice.actions;
+export const { setProductInCart,  deleteProductFromCart, clearCartItems } = cartSlice.actions;
 export default cartSlice.reducer;
