@@ -11,21 +11,24 @@ const products = [
         title: "Шапка",
         price: 900,
         isAvailable: "В наличии",
-        id: 0
+        id: 0,
+        quantityInCart: 0
     },
     {
         image: '/img/product-photo/pen.JPG',
         title: "Черно-Фиолетовая ручка",
         price: 4700,
         isAvailable: "В наличии",
-        id: 1
+        id: 1,
+        quantityInCart: 0
     },
     {
         image: '/img/product-photo/pen.JPG',
         title: "Черно-Фиолетовая ручка",
         price: 4700,
         isAvailable: "В наличии",
-        id: 1
+        id: 2,
+        quantityInCart: 0
     }
 ]
     

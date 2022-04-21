@@ -9,6 +9,9 @@ export const CartItem = ({item}:{item:any}) => {
 
     const dispatch = useDispatch()
     const cart = useSelector((state: RootStateOrAny) => state.cart.itemsInCart);
+    
+    const quantity = useSelector((state:RootStateOrAny) => state.cart.quantity);
+    const index = quantity.findIndex((el:any) => el.id == item.id)
     const deleteItem = () => {
         dispatch(deleteProductFromCart(item.id))
     }
@@ -25,10 +28,10 @@ export const CartItem = ({item}:{item:any}) => {
                     {item.title}
                 </div>
                 
-                <CartItemCount />
+                <CartItemCount item = {item}/>
 
                 <div className="cart-item__price">
-                    {item.price}
+                    {item.price * quantity[index].qantyt}
                 </div>
                 <div className="delete-item" onClick={ deleteItem }>
                     <img src="/img/x.png" id="cart-cross"></img>

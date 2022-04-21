@@ -7,7 +7,10 @@ import { GreenRegularButton } from "../../components/buttons/green-regular-butto
 
 export const CartPage = () => {
     const cart = useSelector((state: RootStateOrAny) => state.cart.itemsInCart);
-    const totalCost = cart.reduce((acc:number, item:any) => acc = acc + item.price, 0)
+    const quantity = useSelector((state:RootStateOrAny) => state.cart.quantity);
+    
+    const totalCost = cart.reduce((acc:number, item:any) => acc = acc + item.price , 0);
+
 
     return (
         <div className="cart-page">
