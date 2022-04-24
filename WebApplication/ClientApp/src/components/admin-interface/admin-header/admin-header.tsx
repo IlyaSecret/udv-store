@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { AccuralUcoinsPage } from "../admin-pages/accural-ucoins/accural-ucoins";
 import './admin-header.css';
 
 export const AdminHeader = () => {
@@ -13,7 +14,7 @@ export const AdminHeader = () => {
 
                 <div className="navbar-wrap">
                     <ul>
-                        <li className="nav__link">Заявки</li>
+                        <li className="nav__link"><Link to="accural-ucoins">Заявки</Link></li>
                         <li className="nav__link">Заказы</li>
                         <li className="nav__link">Мерч</li>
                         <li className="nav__link green">Начисление UCoins</li>

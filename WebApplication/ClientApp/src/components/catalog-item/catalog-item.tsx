@@ -12,7 +12,7 @@ export const CatalogItem = ({product} : {product:any}) => {
     const dispatch = useDispatch();
     const handleClick = () => {
         dispatch(setCurrentProduct({product}))
-        navigate(`/catalog/${URLS.cap}`);
+        navigate(`/catalog/${product.title}`);
     }
 
     return (

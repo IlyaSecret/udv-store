@@ -1,6 +1,7 @@
 import { Provider } from 'react-redux';
 import { Routes, Route, BrowserRouter, Outlet } from 'react-router-dom';
 import './App.css';
+import { AccuralUcoinsPage } from './components/admin-interface/admin-pages/accural-ucoins/accural-ucoins';
 import { AdminHeaderedLayout } from './components/layouts/admin-headered-layout';
 import { HeaderedLayout } from './components/layouts/user-headered-layout';
 import { CartPage } from './pages/cart-page/cart-page';
@@ -26,7 +27,7 @@ function App() {
             </Routes>
             <Routes>
               <Route path='/admin' element={<AdminHeaderedLayout/>}>
-
+                <Route path='accural-ucoins' element={<AccuralUcoinsPage />}></Route>
               </Route>
             </Routes>
           </div>
