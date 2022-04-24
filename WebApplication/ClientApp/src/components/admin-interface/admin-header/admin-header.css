@@ -40,7 +40,7 @@ body {
 }
 .nav__link {
     font-weight: 400;
-    font-size: 24px;
+    font-size: 40px;
     line-height: 29px;
     display: inline-block;
     margin: 0 50px;
@@ -51,7 +51,6 @@ a {
 .header__right {
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 #user-avatar {
     width: 48px;
@@ -70,4 +69,7 @@ a {
 .cart {
     width: 32px;
     height: 20px;
+}
+.green {
+    color: #09D49E;
 }

@@ -1,7 +1,8 @@
 import { Provider } from 'react-redux';
 import { Routes, Route, BrowserRouter, Outlet } from 'react-router-dom';
 import './App.css';
-import { HeaderedLayout } from './components/layouts/headered-layout';
+import { AdminHeaderedLayout } from './components/layouts/admin-headered-layout';
+import { HeaderedLayout } from './components/layouts/user-headered-layout';
 import { CartPage } from './pages/cart-page/cart-page';
 import { CatalogPage } from './pages/catalog-page/catalog-page';
 import { LoginPage } from './pages/login-page/login-page';
@@ -22,6 +23,11 @@ function App() {
                 <Route path='catalog/:title' element={<ProductPage/>}></Route>
               </Route>
               <Route path='/sign-in' element={<LoginPage />}></Route>
+            </Routes>
+            <Routes>
+              <Route path='/admin' element={<AdminHeaderedLayout/>}>
+
+              </Route>
             </Routes>
           </div>
         </BrowserRouter>
