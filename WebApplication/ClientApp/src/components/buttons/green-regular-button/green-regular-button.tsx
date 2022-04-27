@@ -3,11 +3,12 @@ import "./green-regular-button.css";
 
 interface IButton {
     value: string
+    color: string
     onClick?: any
 }
 
-export const GreenRegularButton = ({value} : IButton, onClick: IButton) => {
+export const GreenRegularButton = ({value, color} : IButton, onClick: IButton) => {
     return (
-        <button className="button">{value}</button>
+        <button className="button" style={{backgroundColor: `${color}`}}>{value}</button>
     )
 }

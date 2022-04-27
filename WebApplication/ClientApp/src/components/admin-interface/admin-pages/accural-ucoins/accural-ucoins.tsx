@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { ModalWindow } from "../../../modal-window/modal-window";
 import { RequestCard } from "../../ucoin-request-card/ucoin-request-card";
 import "./accural-ucoins.css";
 
@@ -18,6 +19,7 @@ export const AccuralUcoinsPage = () => {
 
 
         <div className="acc-ucoins">
+        
             <div className="acc-ucioins__head">
                 
                 <div className="acc-ucoins__full-name">ФИО</div>
@@ -27,6 +29,7 @@ export const AccuralUcoinsPage = () => {
             <div className="acc-ucoins__requests">
                 {users.map(user => <RequestCard user={user}/>)}
             </div>
+            
         </div>
     )
 }

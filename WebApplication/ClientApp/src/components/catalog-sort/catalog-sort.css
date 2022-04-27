@@ -19,4 +19,11 @@ select {
     font-size: 24px;
     text-decoration: underline;
     color:white;
+    padding: 6px;
+    outline: none;
+}
+option {
+    background-color: #616060;
+    text-align: start;
+    text-decoration: none;
 }

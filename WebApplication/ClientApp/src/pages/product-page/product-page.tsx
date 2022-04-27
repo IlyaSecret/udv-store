@@ -39,7 +39,7 @@ export const ProductPage = () => {
                         <SizeButtons />
                     </div>
                     <div className="product-page__inCartButton" onClick={ handleClick }>
-                        <GreenRegularButton value="Добавить в корзину" ></GreenRegularButton>
+                        <GreenRegularButton value="Добавить в корзину" color="#00D29D"></GreenRegularButton>
                     </div>
                 </div>
             

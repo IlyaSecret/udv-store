@@ -35,7 +35,7 @@ export const CartPage = () => {
                 </div>
 
                 <div className="cart-page__info__button">
-                    <GreenRegularButton value="Оплатить" />
+                    <GreenRegularButton value="Оплатить" color="#00D29D"/>
                 </div>
             </div>
 
