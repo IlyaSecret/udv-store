@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import './header.css';
+import {useState} from 'react';
+import { UserMenu } from '../user-menu/user-menu';
 
 export const Header = () => {
+    const [isMenuVisible, setMenuVisible] = useState(false)
     return (
         <header className="header">
             <div className="container">
@@ -26,7 +29,11 @@ export const Header = () => {
                         </ul>
                         
                     </div>
-                    <img src="/img/user.png" id="user-avatar"></img>
+                    <div className="header__right__user-img" onClick={() => setMenuVisible(!isMenuVisible)}>
+                        <img src="/img/user.png" id="user-avatar"></img>
+                    </div>
+                    {isMenuVisible ? <UserMenu /> : null}
+                    
                     <div className="header_right--cart">
                             <Link to="/cart"><img src="/img/cart.png" id="cart"></img></Link>
                             

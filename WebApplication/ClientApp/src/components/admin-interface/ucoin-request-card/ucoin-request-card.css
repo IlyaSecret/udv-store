@@ -70,3 +70,11 @@
 .modal__user-info {
     margin: 40px 0;
 }
+.modal__button__content {
+    font-weight: 700;
+    font-size: 30px;
+    cursor: pointer;
+}
+.request-card__acc-ucoins {
+    cursor: pointer;
+}

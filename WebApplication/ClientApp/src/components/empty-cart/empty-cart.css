@@ -1,0 +1,10 @@
+.empty-cart__title__text {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 35px;
+}
+
+.empty-cart__title__redirect {
+    margin-bottom: 170px;
+}

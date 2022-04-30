@@ -1,9 +1,11 @@
 .login-page {
+    margin-top: 200px;
+}
+.login-page__content {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+    flex-direction: column;
 }
 .login-page__logo {
     margin-bottom: 80px;

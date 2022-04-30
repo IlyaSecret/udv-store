@@ -11,3 +11,6 @@
     border: none;
     cursor: pointer;
 }
+.product-page__sizes {
+    margin-bottom: 30px;
+}

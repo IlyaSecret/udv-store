@@ -16,7 +16,10 @@ export const ProductPage = () => {
     const handleClick = () => {
         dispatch(setProductInCart(products))
     }
-
+    let size;
+    if (products.haveSize) {
+        size = <SizeButtons></SizeButtons>
+    }
     return (
         <div className="product-page">
             <div className="product-page__head">
@@ -35,8 +38,7 @@ export const ProductPage = () => {
                         {products.price} U
                     </div>
                     <div className="product-page__sizes">
-                        <div className="size">Размер:</div>
-                        <SizeButtons />
+                        {size}
                     </div>
                     <div className="product-page__inCartButton" onClick={ handleClick }>
                         <GreenRegularButton value="Добавить в корзину" color="#00D29D"></GreenRegularButton>

@@ -36,10 +36,10 @@ export const RequestCard = ({user}:any) => {
                             </select>
                         </div>
                         <div className="modal__number">
-                            <input type="text" placeholder="Введите число"></input>U
+                            <input type="text" placeholder="Введите число" style={{color:"white"}}></input>U
                         </div>
                         <div className="modal__button">
-                            <GreenRegularButton value="Начислить" color="#F2CB05"/>
+                            <div className="modal__button__content yellow">Начислить</div>
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,29 @@
+.user-menu {
+}
+
+.user-menu__buttons {
+    transform: scale(1);
+    transition: 0.4s all;
+    padding: 5px 10px;
+    position: absolute;
+    width: 150px;
+    background-color: #4d4b4b;
+    top: 80px;
+    right: 20px;
+    border-radius: 20px;
+}
+.user-menu__logout {
+    background-color: #F24405;
+    width: 100%;
+    padding: 5px 0;
+    border: none;
+    font-family: 'Hero';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 24px;
+    border-bottom: 1px solid #6B6B6B;
+    color: white;
+    cursor: pointer;
+    border-radius: 15px;
+}

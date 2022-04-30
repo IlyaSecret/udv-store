@@ -9,6 +9,7 @@ export const SizeButtons = () => {
 
     return (
         <div className="size-buttons">
+            <div className="size">Размер:</div>
             {sizes.map(size=> {
                 return <button className="size-button">{size}</button>
             })}
