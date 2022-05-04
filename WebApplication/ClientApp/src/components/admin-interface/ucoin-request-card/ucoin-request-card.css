@@ -1,0 +1,80 @@
+.request-card {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 70px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 43px;
+    text-align: center;
+    border-bottom: 1px solid white;
+    margin: 0 40px;
+}
+
+.underline {
+    text-decoration: underline;
+}
+.modal__content {
+    display: flex;
+    flex-direction: column;
+}
+.modal__number {
+    text-align: start;
+}
+.modal__number input {
+    background-color: #444242;
+    border: none;
+    border-bottom: 1px solid #B7B7B7;
+    padding: 7px;
+    margin-right: 5px;
+    outline: none; 
+}
+.modal__title {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 48px;
+    text-align: center;
+}
+.modal_full-name, .modal__email {
+    text-align: start;
+}
+.modal_user-info_title, .modal_user-info_value {
+    display: inline;
+}
+.name {
+    padding-right: 130px;
+}
+.email {
+    padding-right: 116px;
+}
+.modal_user-info_title{
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 29px;
+    color: #8E8E8E;
+}
+.modal_user-info_value {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 29px;
+    color: #FFFFFF;
+}
+.modal-select {
+    width: 100%;
+    text-decoration: none;
+}
+.modal__select {
+    border-bottom: 1px solid #B7B7B7;
+    margin-bottom: 40px;
+}
+.modal__user-info {
+    margin: 40px 0;
+}
+.modal__button__content {
+    font-weight: 700;
+    font-size: 30px;
+    cursor: pointer;
+}
+.request-card__acc-ucoins {
+    cursor: pointer;
+}
