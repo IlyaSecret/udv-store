@@ -16,9 +16,11 @@ namespace WebApplication1
 {
     public class Startup
     {
+        public static string ConnectionString;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            ConnectionString = configuration.GetConnectionString("conn");
         }
 
         public IConfiguration Configuration { get; }
