@@ -11,12 +11,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplication1.Models;
 
 namespace WebApplication1
 {
     public class Startup
     {
         public static string ConnectionString;
+        public static Employees currentUser = new Employees();
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
