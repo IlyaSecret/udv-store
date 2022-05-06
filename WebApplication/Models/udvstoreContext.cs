@@ -90,6 +90,7 @@ namespace WebApplication1.Models
                     .HasColumnName("productSize")
                     .HasMaxLength(10)
                     .IsUnicode(false);
+
             });
 
             OnModelCreatingPartial(modelBuilder);
