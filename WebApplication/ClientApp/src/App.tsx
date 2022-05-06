@@ -1,4 +1,5 @@
-import { Provider } from 'react-redux';
+import { useEffect } from 'react';
+import { Provider, useDispatch } from 'react-redux';
 import { Routes, Route, BrowserRouter, Outlet } from 'react-router-dom';
 import './App.css';
 import { AccuralUcoinsPage } from './components/admin-interface/admin-pages/accural-ucoins/accural-ucoins';

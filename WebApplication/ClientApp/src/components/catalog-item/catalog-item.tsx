@@ -20,7 +20,7 @@ export const CatalogItem = ({product} : {product:any}) => {
             <CatalogItemCover image={product.image}/>
             <div className="catalog-item__details" >
                 <span className="catalog-item_title">{product.title}</span>
-                <span className="catalog-item__isAvailable">{product.isAvailable}</span>
+                <span className="catalog-item__isAvailable">{product.inExistance}</span>
                 <span className="catalog-item__price">{product.price} U</span>
             </div>
         </div>
