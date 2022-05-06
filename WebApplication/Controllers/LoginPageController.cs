@@ -25,15 +25,15 @@ namespace WebApplication1.Controllers
                     if(elem.Pass == password)
                     {
                         Startup.currentUser = elem;
-                        return Ok("Успешно");
+                        return Ok(elem);
                     }
                     else
                     {
-                        return Ok("Неверный пароль");
+                        return BadRequest("Неправильный пароль");
                     }
                 }
             }
-            return Ok("Нет пользователя с такой почтой");
+            return BadRequest("Нет пользователя с такой почтой");
         }
     }
 }
