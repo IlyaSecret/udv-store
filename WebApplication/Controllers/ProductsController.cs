@@ -13,7 +13,8 @@ namespace WebApplication1.Controllers
     public class ProductsController : ControllerBase
     {
        [HttpGet]
-       public IEnumerable<Products> Get()
+       [Route("Get")]
+        public IEnumerable<Products> Get()
         {
             var context = new udvstoreContext();
             return context.Products.ToList();           

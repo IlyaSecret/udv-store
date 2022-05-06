@@ -13,10 +13,27 @@ namespace WebApplication1.Controllers
     public class EmployeeController : ControllerBase
     {
        [HttpGet]
-       public IEnumerable<Employees> Get()
+       [Route("Get")]
+        public IEnumerable<Employees> Get()
         {
             var context = new udvstoreContext();
             return context.Employees.ToList();           
+        }
+
+        [HttpPost]
+        [Route("AddBonus")]
+        public IActionResult AddBonus(int id, int bonus)
+        {
+            var context = new udvstoreContext();
+            foreach(var elem in context.Employees)
+            {
+                if (elem.Id == id)
+                {
+                    elem.Balance += bonus;                  
+                }
+            }
+            context.SaveChangesAsync();
+            return Ok("добавлено");
         }
     }
 }

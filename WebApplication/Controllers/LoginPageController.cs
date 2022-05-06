@@ -13,7 +13,8 @@ namespace WebApplication1.Controllers
     public class LoginPageController : ControllerBase
     {
        [HttpGet]
-       public IActionResult Login(string login, string password)
+       [Route("Login")]
+        public IActionResult Login(string login, string password)
         {
             var context = new udvstoreContext();
             var users = context.Employees;
