@@ -13,6 +13,8 @@ import { ProductPage } from './pages/product-page/product-page';
 import { store } from './redux/store';
 
 function App() {
+  
+
   return (
         <Provider store={store}>
         <BrowserRouter>
