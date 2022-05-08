@@ -1,31 +1,14 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-// const sendRequest = async (email: string, password:string) => {
-//     const response = await fetch(`https://localhost:44309/LoginPage?login=${email}&password=${password}`);
-//     const data = await response.text();
-//     if (await data == "Успешно") {
-//       const response1 = await fetch("https://localhost:44309/Employee");
-//       const data1 = await response1.json();
-//       const userData = await data1.filter((user : any) => user["email"] == email);
-//       console.log(userData);
-      
-//     }
-//   }
-//   sendRequest("Email0", "0");
 
 export const authUser = createAsyncThunk(
     "user/authUser",
   async function(userInfo) {
-    const {userEmail, userPassword} = userInfo;
-    const response = await fetch(`https://localhost:44309/LoginPage?login=${userEmail}&password=${userPassword}`);
-    const data = await response.text();
-    if (await data == "Успешно") {
-               const response1 = await fetch("https://localhost:44309/Employee");
-               const data1 = await response1.json();
-               const userData = await data1.filter((user) => user["email"] == userEmail);
-               return {userData, data};
+    let {userEmail, userPassword} = userInfo;
+    const response = await fetch(`https://localhost:44309/LoginPage/Login?login=${userEmail}&password=${userPassword}`);
+    const data = response.json();
+    return data;
   }
-}
 )
 
 
@@ -43,7 +26,7 @@ const userSlice = createSlice({
         },
         [authUser.fulfilled]: (state, action) => {
           state.status = action.payload.data
-          state.user = action.payload.userData;
+          state.user = action.payload;
         },
         [authUser.rejected]: (state, action) => {
     
