@@ -1,19 +1,25 @@
 import React, { useState } from "react";
 import "./login-page.css";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { GreenRegularButton } from "../../components/buttons/green-regular-button/green-regular-button";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { authUser } from "../../redux/user/reducer";
 
 export const LoginPage = () => {
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
-
+    const user = useSelector(state => state.user);
     const dispatch = useDispatch();
-    
-        
-        
+    const navigate = useNavigate();
+    useEffect(() => {
+        if (user.status == "succes") {
+            navigate("/catalog")
+        }
+        else {
+            console.log("Нет");
+        }
+    }, [user.status])
     return (
         <div className="login-page">
             <div className="login-page__content">
