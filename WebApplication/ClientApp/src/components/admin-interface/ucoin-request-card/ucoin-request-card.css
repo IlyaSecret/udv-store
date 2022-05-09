@@ -78,3 +78,6 @@
 .request-card__acc-ucoins {
     cursor: pointer;
 }
+option {
+    border-bottom: 1px solid #000;
+}
