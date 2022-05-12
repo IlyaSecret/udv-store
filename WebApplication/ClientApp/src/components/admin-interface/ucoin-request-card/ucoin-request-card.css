@@ -81,3 +81,8 @@
 option {
     border-bottom: 1px solid #000;
 }
+.req-input {
+    font-size: 15px;
+}
+.request-card__email {
+}

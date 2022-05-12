@@ -1,6 +1,7 @@
 import productsReducer from "./products/reducer";
 import cartReducer from "./cart/reducer";
 import userReducer from "./user/reducer";
+import allUsersReducer from "./user/all-users-reducer";
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { 
     persistStore, 
@@ -18,7 +19,8 @@ import storage from 'redux-persist/lib/storage'
 const rootReducer = combineReducers({
     products: productsReducer,
     cart: cartReducer,
-    user: userReducer
+    user: userReducer,
+    users: allUsersReducer
 })
 
 const persistConfig = {
@@ -30,9 +32,7 @@ const store = configureStore({
     reducer: persistedReducer,
     middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
+      serializableCheck: false
     }),
 })
 

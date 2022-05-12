@@ -7,7 +7,7 @@ export const authUser = createAsyncThunk(
     try {
       let {userEmail, userPassword} = userInfo;
       const response = await fetch(`https://localhost:44309/LoginPage/Login?login=${userEmail}&password=${userPassword}`);
-      const data = response.json();
+      const data = await response.json();
       return data;
     }
     catch(e) {
@@ -16,13 +16,31 @@ export const authUser = createAsyncThunk(
     
   }
 )
+export const setUserCoins = createAsyncThunk(
+  "user/getUserCoins",
+  async function(userInfo) {
+    try {
+      let {userId, coinsAmount} = userInfo;
+      const response = await fetch(`https://localhost:44309/Employee/AddBonus?id=${userId}&bonus=${coinsAmount}`, {
+        method: "POST",
+        mode: "no-cors",
+      });
+      const data = await response.json();
+     }
+     catch(e) {
+      return e;
+     }
+  }
+)
+
 
 
 const userSlice = createSlice({
     name: "user",
     initialState : {
         user: {},
-        status: null
+        status: null,
+        sendStatus : null
     },
     reducers: {
         logoutUser : (state, action) => {
@@ -31,8 +49,6 @@ const userSlice = createSlice({
         }
     },
     extraReducers: {
-        [authUser.pending]: (state, action) => {
-        },
         [authUser.fulfilled]: (state, action) => {
           state.status = "succes";
           state.user = action.payload;
@@ -40,6 +56,12 @@ const userSlice = createSlice({
         [authUser.rejected]: (state, action) => {
           state.status = "rejected";
         },
+        [setUserCoins.fulfilled] : (state, action) => {
+          state.sendStatus = "success";
+        },
+        [setUserCoins.rejected] : (state, action) => {
+          state.sendStatus = "rejected";
+        }
     }
 })
 
