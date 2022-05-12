@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import './header.css';
 import {useState} from 'react';
 import { UserMenu } from '../user-menu/user-menu';
+import { RootStateOrAny, useSelector } from "react-redux";
 
 export const Header = () => {
+    const user = useSelector((state:RootStateOrAny) => state.user);
     const [isMenuVisible, setMenuVisible] = useState(false)
     return (
         <header className="header">
@@ -24,8 +26,8 @@ export const Header = () => {
                 <div className="header__right">
                     <div className="header__right--user-info">
                         <ul>
-                            <li>Тимофей</li>
-                            <li className="yellow" id="small">3 700 U</li>
+                            <li>{user.user.fio}</li>
+                            <li className="yellow" id="small">{user.user.balance} U</li>
                         </ul>
                         
                     </div>

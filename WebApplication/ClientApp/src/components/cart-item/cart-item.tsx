@@ -21,7 +21,7 @@ export const CartItem = ({item}:{item:any}) => {
 
             <div className="cart-item__details">
                 <div className="cart-item__image">
-                    <CartCover image={item.image} />
+                    <CartCover image={item.img} />
                 </div>
                 
                 <div className="cart-item__title">

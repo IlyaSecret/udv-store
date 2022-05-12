@@ -1,4 +1,5 @@
-import { Provider } from 'react-redux';
+import { useEffect } from 'react';
+import { Provider, useDispatch } from 'react-redux';
 import { Routes, Route, BrowserRouter, Outlet } from 'react-router-dom';
 import './App.css';
 import { AccuralUcoinsPage } from './components/admin-interface/admin-pages/accural-ucoins/accural-ucoins';
@@ -9,11 +10,15 @@ import { CatalogPage } from './pages/catalog-page/catalog-page';
 import { LoginPage } from './pages/login-page/login-page';
 import { OrdersPage } from './pages/orders-page/orders-page';
 import { ProductPage } from './pages/product-page/product-page';
-import { store } from './redux/store';
+import store, { persistor } from './redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
 
 function App() {
+  
+
   return (
         <Provider store={store}>
+          <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter>
           <div className="App">     
             <Routes>    
@@ -32,6 +37,7 @@ function App() {
             </Routes>
           </div>
         </BrowserRouter>
+        </PersistGate>
         </Provider>
   );
 }

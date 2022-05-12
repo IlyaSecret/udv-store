@@ -5,6 +5,7 @@ import { SizeButtons } from '../../components/buttons/size-button/size-button';
 import { useSelector, RootStateOrAny, useDispatch } from 'react-redux';
 import { ProductCover } from "../../components/product-cover/product-cover";
 import {setProductInCart, deleteProductFromCart} from "../../redux/cart/reducer";
+import { PRODUCTS_TITLES } from "../../utils/products-titles";
 
  
 export const ProductPage = () => {
@@ -12,7 +13,8 @@ export const ProductPage = () => {
     const cart = useSelector((state: RootStateOrAny) => state.cart.itemsInCart);
     const dispatch = useDispatch();
     const products = useSelector((state : RootStateOrAny)=> state.products.currentProduct.product)
-    
+    const title = products.productName;
+
     const handleClick = () => {
         dispatch(setProductInCart(products))
     }
@@ -20,18 +22,19 @@ export const ProductPage = () => {
     if (products.haveSize) {
         size = <SizeButtons></SizeButtons>
     }
+
     return (
         <div className="product-page">
             <div className="product-page__head">
 
                 <div className="product-page__image">
-                    <ProductCover image={products.image}></ProductCover>
+                    <ProductCover image={products.img}></ProductCover>
                 </div>
 
                 <div className="product-page__info">
                 
                     <div className="product-page__details">
-                        <p className="details__title">{products.title}</p>
+                        <p className="details__title">{PRODUCTS_TITLES[title]}</p>
                         <p className="details__desc">черная, мужская</p>
                     </div>
                     <div className="product-page__price">
