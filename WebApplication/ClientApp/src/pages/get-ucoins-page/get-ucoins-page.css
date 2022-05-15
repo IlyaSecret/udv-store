@@ -1,0 +1,78 @@
+.get-ucoins-page__container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+input {
+    background-color: #524F4F;
+    border: none;
+}
+#get-ucoins-select {
+    width: 550px;
+    overflow-wrap: normal;
+    border-bottom: 1px solid gray;
+}
+.get-ucoins-page__info {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 530px;
+}
+#get-ucoins-firstname, #get-ucoins-lastname, #get-ucoins-patronymic {
+    width: 350px;
+    height: 40px;
+    border-radius: 6px;
+    text-align: end;
+}
+#get-ucoins-comment {
+    width: 487px;
+    height: 150px;
+    text-align: start;
+    vertical-align:top;
+    border-radius: 6px;
+    font-family: 'Hero';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    color: #B7B7B7;
+}
+#get-ucoins-firstname {
+    align-items: flex-end;
+    margin: 35px 0;
+}
+ #get-ucoins-patronymic {
+    margin-bottom: 35px;
+}
+
+.get-ucoins-page__info__title {
+    display: inline-block;
+    width: 116px;
+    margin-right: 20px;
+    text-align: start;
+}
+select {
+    font-family: 'Hero';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+}
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    margin-top: 50px;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-family: 'Hero';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 111.5%;
+    color: #B7B7B7;
+}
+.get-ucoins-button {
+    margin-top: 100px;
+}

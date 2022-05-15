@@ -3,7 +3,7 @@ body {
   font-family: 'Hero';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #302E2E
+  background: #252424
 }
 
 
@@ -11,7 +11,7 @@ body {
   position: relative;
   max-width: 1440px;
   margin: auto;
-  background: #302E2E;
+  background: #252424;
 }
 a {
   color: white;

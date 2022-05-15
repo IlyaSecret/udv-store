@@ -1,11 +1,11 @@
 .button {
-    width: 330px;
+    width: 280px;
+    height: 45px;
     border: none;
     font-family: 'Hero';
     font-style: normal;
     font-weight: 700;
     border-radius: 36px;
-    font-size: 25px;
-    padding: 15px 0;
+    font-size: 20px;
     cursor: pointer;
 }
