@@ -22,7 +22,7 @@ input {
     width: 350px;
     height: 40px;
     border-radius: 6px;
-    text-align: end;
+    text-align: start;
 }
 #get-ucoins-comment {
     width: 487px;

@@ -2,12 +2,20 @@ import { useState } from "react";
 import { GreenRegularButton } from "../../components/buttons/green-regular-button/green-regular-button";
 import { requestNameArr } from "../../utils/ucoins-request";
 import "./get-ucoins-page.css";
-import { useSelector, RootStateOrAny } from 'react-redux';
+import { useSelector, RootStateOrAny, useDispatch } from 'react-redux';
+import { getUcoinRequests } from "../../redux/ucoin-req/reducer";
 
 export const GetUcoinsPage = () => {
-    const user = useSelector((state: RootStateOrAny) => state.user.user);
+    const dispatch = useDispatch();
+    const user = useSelector((state) => state.user.user);
     const [value, setValue] = useState('');
+    const [comment, setComment] = useState("");
     const options = requestNameArr.map((el, index) => <option className="option-value" key={index} id="option-value-getucoins">{el}</option>);
+    const requestType = requestNameArr.findIndex(el => el == value);
+
+
+
+
     return (
         <div className="get-ucoins-page">
             <span className="yellow">Хочу UCoins </span>
@@ -34,14 +42,21 @@ export const GetUcoinsPage = () => {
                 <div className="get-ucoins-page__info__comment">
                 <label>
                        
-                        <input id="get-ucoins-comment" placeholder="Ваш комментарий"></input>
+                        <input id="get-ucoins-comment" placeholder="Ваш комментарий" onChange={(e) => setComment(e.target.value)}></input>
                     </label>
                 </div>
                     <label className="custom-file-upload">
                         <input type="file"/>
                         + Прикрепить вложение
                     </label>
-                <div className="get-ucoins-button">
+                <div className="get-ucoins-button" onClick={ () => {
+                        let requestInfo = {
+                            requestTypeId : requestType,
+                            comment : comment
+                        }
+                        dispatch(getUcoinRequests(requestInfo));
+                    }
+                    }>
                     <GreenRegularButton value="Отправить" color={"#F2CB05"}></GreenRegularButton>
                 </div>
                 
