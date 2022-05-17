@@ -2,9 +2,10 @@ import { useState } from "react";
 import { GreenRegularButton } from "../../components/buttons/green-regular-button/green-regular-button";
 import { requestNameArr } from "../../utils/ucoins-request";
 import "./get-ucoins-page.css";
+import { useSelector, RootStateOrAny } from 'react-redux';
 
 export const GetUcoinsPage = () => {
-
+    const user = useSelector((state: RootStateOrAny) => state.user.user);
     const [value, setValue] = useState('');
     const options = requestNameArr.map((el, index) => <option className="option-value" key={index} id="option-value-getucoins">{el}</option>);
     return (
@@ -21,7 +22,7 @@ export const GetUcoinsPage = () => {
                 <div className="get-ucoins-page__info__firstname">
                 <label>
                     <div className="get-ucoins-page__info__title">Имя</div>
-                        <input id="get-ucoins-firstname"></input>
+                        <input id="get-ucoins-firstname" value={user.fio}></input>
                     </label>
                 </div>
                 <div className="get-ucoins-page__info__patronymic">
