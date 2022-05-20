@@ -45,5 +45,27 @@ namespace WebApplication1.Controllers
             context.SaveChanges();
             return Ok("заказ сформирован");
         }
+        [HttpPost]
+        [Route("ChangeStatus")]
+        public IActionResult ChangeStatus(int id)
+        {
+            var context = new udvstoreContext();
+            var order = context.Orders.Where(order => order.Id == id).FirstOrDefault();
+            if (order.OrderStatus < 4) order.OrderStatus += 1;
+            context.SaveChanges();
+            return Ok("Статус изменен");
+        }
+
+        [HttpPost]
+        [Route("CancelOrder")]
+        public IActionResult Cancel(int id)
+        {
+            var context = new udvstoreContext();
+            var order = context.Orders.Where(order => order.Id == id).FirstOrDefault();
+            order.OrderStatus = 5;
+            context.SaveChanges();
+            return Ok("Заказ отменен");
+        }
     }
+
 }

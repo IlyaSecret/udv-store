@@ -3,7 +3,7 @@ import { GreenRegularButton } from "../../components/buttons/green-regular-butto
 import { requestNameArr } from "../../utils/ucoins-request";
 import "./get-ucoins-page.css";
 import { useSelector, RootStateOrAny, useDispatch } from 'react-redux';
-import { getUcoinRequests } from "../../redux/ucoin-req/reducer";
+import { getUcoinRequests, useAddRequestMutation } from "../../redux/ucoin-req/ucoinRequestApi";
 
 export const GetUcoinsPage = () => {
     const dispatch = useDispatch();
@@ -12,10 +12,9 @@ export const GetUcoinsPage = () => {
     const [comment, setComment] = useState("");
     const options = requestNameArr.map((el, index) => <option className="option-value" key={index} id="option-value-getucoins">{el}</option>);
     const requestType = requestNameArr.findIndex(el => el == value);
+    const [addRequest, {error}] = useAddRequestMutation();
 
-
-
-
+    console.log(error);
     return (
         <div className="get-ucoins-page">
             <span className="yellow">Хочу UCoins </span>
@@ -54,7 +53,7 @@ export const GetUcoinsPage = () => {
                             requestTypeId : requestType,
                             comment : comment
                         }
-                        dispatch(getUcoinRequests(requestInfo));
+                        addRequest(requestInfo);
                     }
                     }>
                     <GreenRegularButton value="Отправить" color={"#F2CB05"}></GreenRegularButton>

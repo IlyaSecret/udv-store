@@ -6,7 +6,7 @@ export const authUser = createAsyncThunk(
   async function(userInfo) {
     try {
       let {userEmail, userPassword} = userInfo;
-      const response = await fetch(`https://localhost:44309/LoginPage/Login?login=${userEmail}&password=${userPassword}`);
+      const response = await fetch(`https://localhost:5001/LoginPage/Login?login=${userEmail}&password=${userPassword}`);
       const data = await response.json();
       return data;
     }
@@ -21,7 +21,7 @@ export const setUserCoins = createAsyncThunk(
   async function(userInfo) {
     try {
       let {userId, coinsAmount} = userInfo;
-      const response = await fetch(`https://localhost:44309/Employee/AddBonus?id=${userId}&bonus=${coinsAmount}`, {
+      const response = await fetch(`https://localhost:5001/Employee/AddBonus?id=${userId}&bonus=${coinsAmount}`, {
         method: "POST",
         mode: "no-cors",
       });

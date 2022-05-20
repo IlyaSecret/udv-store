@@ -13,6 +13,7 @@ import { ProductPage } from './pages/product-page/product-page';
 import store, { persistor } from './redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { GetUcoinsPage } from './pages/get-ucoins-page/get-ucoins-page';
+import { UcoinRequestPage } from './components/admin-interface/admin-pages/ucoin-requests-page/ucoin-requests-page';
 
 function App() {
   
@@ -35,6 +36,7 @@ function App() {
             <Routes>
               <Route path='/admin' element={<AdminHeaderedLayout/>}>
                 <Route path='accural-ucoins' element={<AccuralUcoinsPage />}></Route>
+                <Route path='ucoin-requests' element={<UcoinRequestPage />}></Route>
               </Route>
             </Routes>
           </div>

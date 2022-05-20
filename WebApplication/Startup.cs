@@ -43,9 +43,11 @@ namespace WebApplication1
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseCors(options =>
-            options.WithOrigins("http://localhost:3000")
-            .AllowAnyHeader()
-            .AllowAnyMethod()
+                options.WithOrigins("http://localhost:3000")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowCredentials()
+                    //.AllowAnyOrigin()
             );
             if (env.IsDevelopment())
             {
