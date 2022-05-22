@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,10 +26,23 @@ namespace WebApplication1.Controllers
         public IActionResult SendMessage(Message data)
         {
             var context = new udvstoreContext();
-            var message = new Messages { Fio = Startup.currentUser.Fio, Email = Startup.currentUser.Email, Comment = data.Comment, RequestType = data.Type };
+            var message = new Messages { Fio = Startup.currentUser.Fio, Email = Startup.currentUser.Email, Comment = data.Comment, RequestType = data.Type, userId = Startup.currentUser.Id};
             context.Messages.Add(message);
             context.SaveChangesAsync();
             return Ok(message);
+        }
+
+        [HttpDelete]
+        [Route("ClearTable")]
+        public IActionResult ClearTable()
+        {
+            var context = new udvstoreContext();
+            foreach(var elem in context.Messages)
+            {
+                context.Messages.Remove(elem);
+            }
+            context.SaveChangesAsync();
+            return Ok();
         }
     }
 

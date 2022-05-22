@@ -34,17 +34,18 @@ namespace WebApplication1.Controllers
 
         [HttpPost]
         [Route("CreateOrder")]
-        public IActionResult CreateOrder(string products)
+        public IActionResult CreateOrder(Order data)
         {
             var order = new Orders();
             order.Fio = Startup.currentUser.Fio;
-            order.Items = products;
+            order.Items = String.Join(' ',data.products);
             order.OrderStatus = 1;
             var context = new udvstoreContext();
             context.Orders.Add(order);
             context.SaveChanges();
             return Ok("заказ сформирован");
         }
+
         [HttpPost]
         [Route("ChangeStatus")]
         public IActionResult ChangeStatus(int id)
@@ -66,6 +67,37 @@ namespace WebApplication1.Controllers
             context.SaveChanges();
             return Ok("Заказ отменен");
         }
+
+        [HttpGet]
+        [Route("GetProducts")]
+        public IEnumerable<Products> GetProducts(int id)
+        {
+            var context = new udvstoreContext();
+            var productIds = context.Orders.Where(order => order.Id == id).FirstOrDefault().Items;
+            var products = context.Products;
+            foreach(var elem in productIds.Split())
+            {
+                yield return products.Where(product => product.Id == Convert.ToInt32(elem)).FirstOrDefault();
+            }
+
+        }
+
+        [HttpDelete]
+        [Route("ClearTable")]
+        public IActionResult ClearTable()
+        {
+            var context = new udvstoreContext();
+            foreach (var elem in context.Orders)
+            {
+                context.Orders.Remove(elem);
+            }
+            context.SaveChangesAsync();
+            return Ok();
+        }
     }
 
+    public class Order
+    {
+        public List<int> products { get; set; }
+    }
 }
