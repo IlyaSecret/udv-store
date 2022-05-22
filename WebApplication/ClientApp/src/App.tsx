@@ -30,6 +30,7 @@ function App() {
                 <Route path='cart' element={<CartPage />}></Route>
                 <Route path='catalog/:title' element={<ProductPage/>}></Route>
                 <Route path='get-ucoins' element={<GetUcoinsPage />}></Route>
+                <Route path='orders' element={<OrdersPage/>}></Route>
               </Route>
               <Route path='/sign-in' element={<LoginPage />}></Route>
             </Routes>

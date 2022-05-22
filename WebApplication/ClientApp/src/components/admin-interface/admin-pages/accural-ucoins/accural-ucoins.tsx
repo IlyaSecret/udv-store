@@ -6,6 +6,10 @@ import { getAllUsers } from "../../../../redux/user/all-users-reducer";
 
 export const AccuralUcoinsPage = () => {
     const users = useSelector((state : RootStateOrAny) => state.users.users);
+    const disppatch = useDispatch();
+    useEffect(() => {
+        disppatch(getAllUsers());
+    }, [disppatch]);
     return (
 
 

@@ -18,7 +18,7 @@ export const Header = () => {
 
                 <div className="navbar-wrap">
                     <ul>
-                        <li className="nav__link">Заказы</li>
+                        <Link to="orders"><li className="nav__link">Заказы</li></Link>
                         <li className="nav__link yellow">Правила начисления UСoins</li>
                     </ul>
                 </div>

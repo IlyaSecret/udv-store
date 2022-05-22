@@ -20,14 +20,13 @@ export const ucoinsRequestApi = createApi({
         }),
         addRequest : build.mutation({
             query: (requestInfo) => ({
-                //url : `/Messages/SendMessage?type=${requestInfo.requestTypeId}&comment=${requestInfo.comment}`,
+    
                 url : `/Messages/SendMessage`,
                 method: "POST",
                 body: {
                     type: requestInfo.requestTypeId,
                     comment: requestInfo.comment
                 },
-                // mode: "no-cors",
                 responseHandler: (response) => {
                     return response.json();
                 }
@@ -36,30 +35,5 @@ export const ucoinsRequestApi = createApi({
         })
     })
 })
-// export const getUcoinRequests = createAsyncThunk(
-//     "ucoinRequest/getUcoinRequests",
-//     async function(requestInfo) {
-//         const {requestTypeId, comment} = requestInfo;
-//         const response = await fetch(`https://localhost:44309/Messages/SendMessage?type=${requestTypeId}&comment=${comment}`, {
-//             method: "POST",
-//             mode: "no-cors",
-//           });
-//         const data = await response.text();
-//         return data;
-//     }
-// )
 
-// const ucoinsRequestSlice =  createSlice({
-//     name : "ucoinRequest",
-//     initialState: {
-//         requests : [],
-//         status: null
-//     },
-//     reducers: {
-
-//     },
-//     extraReducers: {
-
-//     }
-// })
 export const { useGetRequestsQuery, useAddRequestMutation } = ucoinsRequestApi;
