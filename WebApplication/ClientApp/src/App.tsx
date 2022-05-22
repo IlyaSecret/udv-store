@@ -12,6 +12,8 @@ import { OrdersPage } from './pages/orders-page/orders-page';
 import { ProductPage } from './pages/product-page/product-page';
 import store, { persistor } from './redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
+import { GetUcoinsPage } from './pages/get-ucoins-page/get-ucoins-page';
+import { UcoinRequestPage } from './components/admin-interface/admin-pages/ucoin-requests-page/ucoin-requests-page';
 
 function App() {
   
@@ -27,12 +29,15 @@ function App() {
                 <Route path='orders' element={<OrdersPage />}></Route>
                 <Route path='cart' element={<CartPage />}></Route>
                 <Route path='catalog/:title' element={<ProductPage/>}></Route>
+                <Route path='get-ucoins' element={<GetUcoinsPage />}></Route>
+                <Route path='orders' element={<OrdersPage/>}></Route>
               </Route>
               <Route path='/sign-in' element={<LoginPage />}></Route>
             </Routes>
             <Routes>
               <Route path='/admin' element={<AdminHeaderedLayout/>}>
                 <Route path='accural-ucoins' element={<AccuralUcoinsPage />}></Route>
+                <Route path='ucoin-requests' element={<UcoinRequestPage />}></Route>
               </Route>
             </Routes>
           </div>

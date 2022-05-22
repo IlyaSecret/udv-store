@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { GetUcoinsPage } from "../../pages/get-ucoins-page/get-ucoins-page";
 import './catalog-sort.css';
 
 export const CatalogSort = () => {
@@ -13,7 +15,7 @@ export const CatalogSort = () => {
                     
                 </div>
                 <div className="catalog__ucoins">
-                    <a href="#" className="yellow">Хочу Ucoins</a>
+                    <Link to="/get-ucoins"><span className="yellow">Хочу Ucoins</span></Link>
                 </div>
                 
             </div>

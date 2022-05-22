@@ -1,9 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+
 export const getAllUsers = createAsyncThunk(
     "users/getUserCoins",
     async function() {
       try {
-        const requestUrl = "https://localhost:44309/Employee/Get";
+        const requestUrl = "https://localhost:5001/Employee/Get";
         const response = await fetch(requestUrl);
         const data = await response.json();
       return data;

@@ -14,26 +14,26 @@ import {
     REGISTER,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
+import { ucoinsRequestApi } from "./ucoin-req/ucoinRequestApi";
 
 
 const rootReducer = combineReducers({
     products: productsReducer,
     cart: cartReducer,
     user: userReducer,
-    users: allUsersReducer
+    users: allUsersReducer,
+    [ucoinsRequestApi.reducerPath]: ucoinsRequestApi.reducer
 })
 
 const persistConfig = {
     key: 'root',
     storage,
+    blacklist: ['products', 'ucoinsRequestApi']
   }
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 const store = configureStore({
     reducer: persistedReducer,
-    middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: false
-    }),
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(ucoinsRequestApi.middleware),
 })
 
 export const persistor = persistStore(store);

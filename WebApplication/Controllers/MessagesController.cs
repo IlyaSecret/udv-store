@@ -22,13 +22,19 @@ namespace WebApplication1.Controllers
 
         [HttpPost]
         [Route("SendMessage")]
-        public IActionResult SendMessage(int type, string comment)
+        public IActionResult SendMessage(Message data)
         {
             var context = new udvstoreContext();
-            var message = new Messages { Fio = Startup.currentUser.Fio, Email = Startup.currentUser.Email, Comment = comment, RequestType = type };
+            var message = new Messages { Fio = Startup.currentUser.Fio, Email = Startup.currentUser.Email, Comment = data.Comment, RequestType = data.Type };
             context.Messages.Add(message);
             context.SaveChangesAsync();
-            return Ok("Запрос на получение UCoin отправлен");
+            return Ok(message);
         }
+    }
+
+    public class Message
+    {
+        public int Type { get; set; } 
+        public string Comment { get; set; }
     }
 }

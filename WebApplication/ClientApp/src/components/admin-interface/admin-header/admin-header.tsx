@@ -11,13 +11,13 @@ export const AdminHeader = () => {
             <header className="header">
             <div className="container">
 
-                <Link to="/catalog">
+                <Link to="/admin/ucoin-requests">
                     <img src="/img/logo.png"></img>
                 </Link>                
 
                 <div className="navbar-wrap">
                     <ul>
-                        <li className="nav__link">Заявки</li>
+                        <Link to="ucoin-requests"><li className="nav__link">Заявки</li></Link>
                         <li className="nav__link">Заказы</li>
                         <li className="nav__link">Мерч</li>
                         <Link to="accural-ucoins"><li className="nav__link green">Начисление UCoins</li></Link>
