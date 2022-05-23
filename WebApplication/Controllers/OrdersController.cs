@@ -95,31 +95,7 @@ namespace WebApplication1.Controllers
             }
             context.SaveChangesAsync();
             return Ok();
-        }
-
-        [HttpDelete]
-        [Route("SendMail")]
-        public IActionResult SendMail(int id)
-        {
-            var context = new udvstoreContext();
-            var order = context.Orders.Where(order => order.Id == id).FirstOrDefault();
-            var user = context.Employees.Where(user => user.Fio == order.Fio).FirstOrDefault();
-            context.Orders.Remove(order);
-            context.SaveChangesAsync();
-            MailAddress from = new MailAddress("markshubat@gmail.com", "admin");
-            MailAddress to = new MailAddress("markshubat@gmail.com");
-            MailMessage m = new MailMessage(from, to);
-            m.Subject = "Тест";
-            var s = "<h2>Письмо отправлено для user</h2>";
-            var message = s.Replace("user", user.Email);
-            m.Body = message;
-            m.IsBodyHtml = true;
-            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-            smtp.Credentials = new NetworkCredential("markshubat@gmail.com", "Mark022402");
-            smtp.EnableSsl = true;
-            smtp.Send(m);
-            return Ok("Письмо отправлено");
-        }
+        }     
     }
 
     public class Order
