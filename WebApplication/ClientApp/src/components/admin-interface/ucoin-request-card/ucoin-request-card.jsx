@@ -1,9 +1,6 @@
-import React from "react";
 import "./ucoin-request-card.css";
 import {useState} from 'react';
 import { ModalWindow } from "../../modal-window/modal-window";
-import { GreenRegularButton } from "../../buttons/green-regular-button/green-regular-button";
-import { RequestSelect } from "./request-select/request-select";
 import { requestNameArr, REQUEST_ARR } from '../../../utils/ucoins-request';
 import { useDispatch } from "react-redux";
 import { setUserCoins } from "../../../redux/user/reducer";

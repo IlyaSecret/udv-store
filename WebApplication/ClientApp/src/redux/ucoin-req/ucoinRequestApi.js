@@ -32,7 +32,8 @@ export const ucoinsRequestApi = createApi({
                 }
             }),
             invalidatesTags: [{ type: 'Requests', id: 'LIST' }],
-        })
+        }),
+        removeRequest : build.mutation
     })
 })
 

@@ -1,5 +1,7 @@
+import { useDispatch } from "react-redux";
 import { requestNameArr, REQUEST_ARR } from "../../../utils/ucoins-request";
 import "./ucoin-requests-card.css";
+import { setUserCoins } from "../../../redux/user/reducer";
 
 // interface IRequest {
 //     id: number,
@@ -12,8 +14,14 @@ import "./ucoin-requests-card.css";
 
 export const UcoinRequestsCard = ({request}) => {
     const requestIndex = requestNameArr[request.requestType];
-    
-    
+    const dispatch = useDispatch();
+    const clickHandler = () => {
+        const userInfo = {
+            userId : request.userId,
+            coinsAmount : REQUEST_ARR[requestIndex]
+        }
+        dispatch(setUserCoins(userInfo));
+    }
     return (
         <div className="ucoin-requests-card">
             
@@ -35,7 +43,14 @@ export const UcoinRequestsCard = ({request}) => {
                         {REQUEST_ARR[requestIndex]} U
                     </div>
                 </div>
-                
+                <div className="ucoin-requests-card__buttons">
+                    <div className="ucoin-requests-card__accept yellow" onClick={clickHandler()}>
+                        Начислить
+                    </div>
+                    <div className="ucoin-requests-card__refuse">
+                        Отказать
+                    </div>
+                </div>
             </div>
         </div>
     )
