@@ -2,7 +2,8 @@ import productsReducer from "./products/reducer";
 import cartReducer from "./cart/reducer";
 import userReducer from "./user/reducer";
 import allUsersReducer from "./user/all-users-reducer";
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { configureStore, combineReducers, applyMiddleware } from '@reduxjs/toolkit';
+import { compose } from "@reduxjs/toolkit";
 import { 
     persistStore, 
     persistReducer, 
@@ -15,6 +16,7 @@ import {
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import { ucoinsRequestApi } from "./ucoin-req/ucoinRequestApi";
+import { ordersApi } from "./orders/ordersApi";
 
 
 const rootReducer = combineReducers({
@@ -22,18 +24,19 @@ const rootReducer = combineReducers({
     cart: cartReducer,
     user: userReducer,
     users: allUsersReducer,
-    [ucoinsRequestApi.reducerPath]: ucoinsRequestApi.reducer
+    [ucoinsRequestApi.reducerPath]: ucoinsRequestApi.reducer,
+    [ordersApi.reducerPath] : ordersApi.reducer,
 })
 
 const persistConfig = {
     key: 'root',
     storage,
-    blacklist: ['products', 'ucoinsRequestApi']
+    blacklist: ['products']
   }
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 const store = configureStore({
     reducer: persistedReducer,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(ucoinsRequestApi.middleware),
+    compose: (applyMiddleware(ordersApi.middleware), applyMiddleware(ucoinsRequestApi.middleware))
 })
 
 export const persistor = persistStore(store);

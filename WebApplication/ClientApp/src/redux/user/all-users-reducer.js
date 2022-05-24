@@ -7,7 +7,7 @@ export const getAllUsers = createAsyncThunk(
         const requestUrl = "https://localhost:5001/Employee/Get";
         const response = await fetch(requestUrl);
         const data = await response.json();
-      return data;
+        return data;
       }
       catch(e) {
         return e;

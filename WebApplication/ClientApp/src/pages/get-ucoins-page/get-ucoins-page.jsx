@@ -14,7 +14,6 @@ export const GetUcoinsPage = () => {
     const requestType = requestNameArr.findIndex(el => el == value);
     const [addRequest, {error}] = useAddRequestMutation();
 
-    console.log(error);
     return (
         <div className="get-ucoins-page">
             <span className="yellow">Хочу UCoins </span>

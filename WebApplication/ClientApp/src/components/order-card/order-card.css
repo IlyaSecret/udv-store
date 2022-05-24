@@ -1,0 +1,26 @@
+
+.order-card {
+    background-color: #3A3838; 
+    padding: 23px 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-family: 'Hero';
+    font-style: normal;
+    font-weight: 400;
+}
+.order-card__info__id {
+    font-size: 35px;
+    text-align: start;
+
+}
+.order-card__info__status {
+    font-size: 20px;
+    color: #00D29D;
+    padding-bottom: 25px;
+}
+.order-card__orders {
+    display: flex;
+}

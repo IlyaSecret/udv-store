@@ -1,5 +1,6 @@
 import React from "react";
 import { RootStateOrAny, useSelector } from "react-redux";
+import { useAddOrderMutation } from "../../redux/orders/ordersApi";
 import { GreenRegularButton } from "../buttons/green-regular-button/green-regular-button";
 import { CartContainer } from "../cart-container/cart-container";
 import "./not-empty-cart.css";
@@ -7,10 +8,8 @@ import "./not-empty-cart.css";
 export const NotEmptyCart = () => {
     const cart = useSelector((state: RootStateOrAny) => state.cart.itemsInCart);
     const quantity = useSelector((state:RootStateOrAny) => state.cart.quantity);
-    
+    let [addOrder] = useAddOrderMutation()
     const totalCost = quantity.reduce((acc:number, item:any) => acc = acc + item.cost , 0);
-
-    const isCartEmpty = cart.length === 0 ? true : false;
     return (
             
                     <div className="cart-page">
@@ -34,7 +33,7 @@ export const NotEmptyCart = () => {
                     <p>{totalCost}</p>
                 </div>
 
-                <div className="cart-page__info__button">
+                <div className="cart-page__info__button" >
                     <GreenRegularButton value="Оплатить" color="#00D29D"/>
                 </div>
             </div>

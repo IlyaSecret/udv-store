@@ -1,0 +1,25 @@
+.order-item {
+    margin-right: 80px;
+}
+.order-item__image {
+    padding-bottom: 19px;
+}
+.order-item__title {
+    padding-bottom: 12px;
+    font-family: 'Hero';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 43px;
+}
+.order-item__title, .order-item__price {
+    text-align: start;
+    
+}
+.order-item__price {
+    font-family: 'Hero';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 111.5%;
+}
