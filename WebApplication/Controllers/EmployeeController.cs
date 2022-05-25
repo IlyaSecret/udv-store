@@ -24,18 +24,34 @@ namespace WebApplication1.Controllers
 
         [HttpPost]
         [Route("AddBonus")]
-        public IActionResult AddBonus(int id, int bonus)
+        public IActionResult AddBonus(Bonus data)
         {
             var context = new udvstoreContext();
-            foreach(var elem in context.Employees)
+            foreach (var elem in data.employeeIds)
             {
-                if (elem.Id == id)
-                {
-                    elem.Balance += bonus;                  
-                }
+                var user = context.Employees.Where(employee => employee.Id == elem).FirstOrDefault();
+                user.Balance += data.bonus;
+                MailAddress from = new MailAddress("markshubat@gmail.com", "admin");
+                MailAddress to = new MailAddress("markshubat@gmail.com");
+                MailMessage m = new MailMessage(from, to);
+                m.Subject = "Тест";
+                var s = "<h2>Письмо отправлено для user</h2>";
+                var messageString = s.Replace("user", user.Email);
+                m.Body = messageString;
+                m.IsBodyHtml = true;
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                smtp.Credentials = new NetworkCredential("markshubat@gmail.com", "Mark022402");
+                smtp.EnableSsl = true;
+                smtp.Send(m);
             }
             context.SaveChangesAsync();
             return Ok("добавлено");
-        }       
+        } 
+    }
+
+    public class Bonus
+    {
+        public int bonus { get; set; }
+        public List<int> employeeIds { get; set; }
     }
 }

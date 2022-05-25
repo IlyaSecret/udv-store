@@ -42,7 +42,12 @@ namespace WebApplication1.Controllers
             order.Fio = Startup.currentUser.Fio;
             order.Items = String.Join(' ',data.products);
             order.OrderStatus = 1;
+            var price = GetProductsPrice(data.products);
+            if (Startup.currentUser.Balance < price)
+                return Ok("Не хватает средств");
             var context = new udvstoreContext();
+            Startup.currentUser.Balance -= price;
+            context.Employees.Where(employee => employee.Id == Startup.currentUser.Id).FirstOrDefault().Balance -= price;
             context.Orders.Add(order);
             context.SaveChanges();
             return Ok("заказ сформирован");
@@ -81,6 +86,21 @@ namespace WebApplication1.Controllers
             {
                 yield return products.Where(product => product.Id == Convert.ToInt32(elem)).FirstOrDefault();
             }
+
+        }
+
+        [HttpPost]
+        [Route("GetProductsPtice")]
+        public int GetProductsPrice(List<int> ids)
+        {
+            var context = new udvstoreContext();
+            var products = context.Products;
+            var sum = 0;
+            foreach (var elem in ids)
+            {
+                sum += (int)products.Where(product => product.Id == Convert.ToInt32(elem)).FirstOrDefault().Price;
+            }
+            return sum;
 
         }
 
