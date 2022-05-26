@@ -42,7 +42,12 @@ namespace WebApplication1.Controllers
             order.Fio = Startup.currentUser.Fio;
             order.Items = String.Join(' ',data.products);
             order.OrderStatus = 1;
+            var price = GetProductsPrice(data.products);
+            if (Startup.currentUser.Balance < price)
+                return Ok("Не хватает средств");
             var context = new udvstoreContext();
+            Startup.currentUser.Balance -= price;
+            context.Employees.Where(employee => employee.Id == Startup.currentUser.Id).FirstOrDefault().Balance -= price;
             context.Orders.Add(order);
             context.SaveChanges();
             return Ok("заказ сформирован");
@@ -84,6 +89,21 @@ namespace WebApplication1.Controllers
 
         }
 
+        [HttpPost]
+        [Route("GetProductsPtice")]
+        public int GetProductsPrice(List<int> ids)
+        {
+            var context = new udvstoreContext();
+            var products = context.Products;
+            var sum = 0;
+            foreach (var elem in ids)
+            {
+                sum += (int)products.Where(product => product.Id == Convert.ToInt32(elem)).FirstOrDefault().Price;
+            }
+            return sum;
+
+        }
+
         [HttpDelete]
         [Route("ClearTable")]
         public IActionResult ClearTable()
@@ -95,31 +115,7 @@ namespace WebApplication1.Controllers
             }
             context.SaveChangesAsync();
             return Ok();
-        }
-
-        [HttpDelete]
-        [Route("SendMail")]
-        public IActionResult SendMail(int id)
-        {
-            var context = new udvstoreContext();
-            var order = context.Orders.Where(order => order.Id == id).FirstOrDefault();
-            var user = context.Employees.Where(user => user.Fio == order.Fio).FirstOrDefault();
-            context.Orders.Remove(order);
-            context.SaveChangesAsync();
-            MailAddress from = new MailAddress("markshubat@gmail.com", "admin");
-            MailAddress to = new MailAddress("markshubat@gmail.com");
-            MailMessage m = new MailMessage(from, to);
-            m.Subject = "Тест";
-            var s = "<h2>Письмо отправлено для user</h2>";
-            var message = s.Replace("user", user.Email);
-            m.Body = message;
-            m.IsBodyHtml = true;
-            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-            smtp.Credentials = new NetworkCredential("markshubat@gmail.com", "Mark022402");
-            smtp.EnableSsl = true;
-            smtp.Send(m);
-            return Ok("Письмо отправлено");
-        }
+        }     
     }
 
     public class Order
