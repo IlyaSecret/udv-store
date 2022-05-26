@@ -12,7 +12,7 @@ export const OrderItem = ({order} : {order:any}) => {
                 {order.productName}
             </div>
             <div className="order-item__price">
-                Цена: {order.price}
+                Цена: {order.price} U
             </div>
         </div>
     )

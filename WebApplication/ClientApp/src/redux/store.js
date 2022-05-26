@@ -36,7 +36,7 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 const store = configureStore({
     reducer: persistedReducer,
-    compose: (applyMiddleware(ordersApi.middleware), applyMiddleware(ucoinsRequestApi.middleware))
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(ucoinsRequestApi.middleware),
 })
 
 export const persistor = persistStore(store);
