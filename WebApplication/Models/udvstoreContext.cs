@@ -89,6 +89,8 @@ namespace WebApplication1.Models
 
                 entity.Property(e => e.InExistance).HasColumnName("inExistance");
 
+                entity.Property(e => e.HasSizes).HasColumnName("HasSizes");
+
                 entity.Property(e => e.Price).HasColumnName("price");
 
                 entity.Property(e => e.ProductDescription)

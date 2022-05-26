@@ -19,7 +19,22 @@ namespace WebApplication1.Controllers
         public IEnumerable<Employees> Get()
         {
             var context = new udvstoreContext();
+            var hoodie = context.Products.Where(product => product.Id == 11).FirstOrDefault();
+            foreach(var elem in context.Products)
+            {
+                elem.InExistance = true;
+                if (elem.Id != 11) elem.HasSizes = false;
+            }
+            context.SaveChanges();
             return context.Employees.ToList();           
+        }
+
+        [HttpGet]
+        [Route("GetById")]
+        public Employees GetById(int id)
+        {
+            var context = new udvstoreContext();
+            return context.Employees.Where(employee => employee.Id == id).FirstOrDefault();
         }
 
         [HttpPost]
