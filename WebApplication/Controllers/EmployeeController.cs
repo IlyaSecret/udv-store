@@ -38,8 +38,8 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
-        [Route("AddBonus")]
-        public IActionResult AddBonus(Bonus data)
+        [Route("AddBonusToGroup")]
+        public IActionResult AddBonusToGroup(Bonus data)
         {
             var context = new udvstoreContext();
             foreach (var elem in data.employeeIds)
@@ -62,6 +62,8 @@ namespace WebApplication1.Controllers
             context.SaveChangesAsync();
             return Ok("добавлено");
         } 
+
+
     }
 
     public class Bonus
