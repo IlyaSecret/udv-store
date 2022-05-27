@@ -27,14 +27,19 @@ export const ucoinsRequestApi = createApi({
                     type: requestInfo.requestTypeId,
                     comment: requestInfo.comment
                 },
-                responseHandler: (response) => {
-                    return response.json();
-                }
             }),
             invalidatesTags: [{ type: 'Requests', id: 'LIST' }],
         }),
-        removeRequest : build.mutation
+        removeRequest : build.mutation({
+            query: (id) => ({
+    
+                url : `/Messages/SendMail?id=${id}`,
+                method: "DELETE",
+            }),
+            invalidatesTags: [{ type: 'Requests', id: 'LIST' }],
+        })
+        
     })
 })
 
-export const { useGetRequestsQuery, useAddRequestMutation } = ucoinsRequestApi;
+export const { useGetRequestsQuery, useAddRequestMutation, useRemoveRequestMutation } = ucoinsRequestApi;

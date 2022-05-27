@@ -4,8 +4,10 @@ import { requestNameArr } from "../../utils/ucoins-request";
 import "./get-ucoins-page.css";
 import { useSelector, RootStateOrAny, useDispatch } from 'react-redux';
 import { getUcoinRequests, useAddRequestMutation } from "../../redux/ucoin-req/ucoinRequestApi";
+import { ModalWindow } from "../../components/modal-window/modal-window";
 
 export const GetUcoinsPage = () => {
+    const [modalActive, setModalActive] = useState(false);
     const dispatch = useDispatch();
     const user = useSelector((state) => state.user.user);
     const [value, setValue] = useState('');
@@ -16,6 +18,10 @@ export const GetUcoinsPage = () => {
 
     return (
         <div className="get-ucoins-page">
+            <ModalWindow active={modalActive} setActive={setModalActive}>
+                <img src="/img/tic.png"></img> <br></br>
+                Заявка отправлена
+            </ModalWindow>
             <span className="yellow">Хочу UCoins </span>
             <div className="get-ucoins-page__container">
             <div className="get-ucoins-page__info">
@@ -53,6 +59,7 @@ export const GetUcoinsPage = () => {
                             comment : comment
                         }
                         addRequest(requestInfo);
+                        setModalActive(true);
                     }
                     }>
                     <GreenRegularButton value="Отправить" color={"#F2CB05"}></GreenRegularButton>

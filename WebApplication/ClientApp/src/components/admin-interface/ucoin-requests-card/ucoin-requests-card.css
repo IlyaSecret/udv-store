@@ -73,3 +73,22 @@
     cursor: pointer;
     padding-right: 60px;
 }
+.ucoin-requests-card__title {
+    font-family: 'Hero';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 38px;
+    margin-top: -25px;
+    margin-bottom: 45px;
+}
+.ucoin-requests-card__name {
+    margin-bottom: 45px;
+}
+.get-ucoins-comment {
+    margin-bottom: 35px;
+}
+.refuse_request {
+    
+    margin-right: -450px;
+}

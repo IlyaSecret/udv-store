@@ -9,10 +9,15 @@ export const RequestCard = ({user}) => {
     const dispatch = useDispatch();
     const [value, setValue] = useState('');
     const [modalActive, setModalActive] = useState(false);
+    const [secondModalActive, setSecondModalActive] = useState(false);
     let ucoinsAmount = REQUEST_ARR[value];
     const options = requestNameArr.map((el, index) => <option className="option-value" key={index}>{el}</option>);
     return (
         <div className="request-card">
+            <ModalWindow active={secondModalActive} setActive={setSecondModalActive}>
+                <img src="/img/tic.png"></img> <br></br>
+                Успешно начислено
+            </ModalWindow>
             <ModalWindow active={modalActive} setActive={setModalActive}>
                 <div className="modal">
                     <div className="modal__content">
@@ -48,6 +53,8 @@ export const RequestCard = ({user}) => {
                                     coinsAmount : ucoinsAmount
                                 }
                                 dispatch(setUserCoins(userInfo))
+                                setModalActive(false);
+                                setSecondModalActive(true)
                                 }}>Начислить</div>
                         </div>
                     </div>
