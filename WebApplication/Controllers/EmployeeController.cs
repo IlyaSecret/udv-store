@@ -61,7 +61,30 @@ namespace WebApplication1.Controllers
             }
             context.SaveChangesAsync();
             return Ok("добавлено");
-        } 
+        }
+        [HttpPost]
+        [Route("AddBonusToSingle")]
+        public IActionResult AddBonusToSingle(int id, int bonus)
+        {
+            var context = new udvstoreContext();
+            var user = context.Employees.Where(employee => employee.Id == id).FirstOrDefault();
+            user.Balance += bonus;
+            MailAddress from = new MailAddress("markshubat@gmail.com", "admin");
+            MailAddress to = new MailAddress("markshubat@gmail.com");
+            MailMessage m = new MailMessage(from, to);
+            m.Subject = "Тест";
+            var s = "<h2>Письмо отправлено для user</h2>";
+            var messageString = s.Replace("user", user.Email);
+            m.Body = messageString;
+            m.IsBodyHtml = true;
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+            smtp.Credentials = new NetworkCredential("markshubat@gmail.com", "Mark022402");
+            smtp.EnableSsl = true;
+            smtp.Send(m);
+            context.SaveChangesAsync();
+            return Ok("добавлено");
+        }
+
 
 
     }
