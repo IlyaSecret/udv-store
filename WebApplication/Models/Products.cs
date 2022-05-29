@@ -10,6 +10,7 @@ namespace WebApplication1.Models
         public int? Price { get; set; }
         public string ProductDescription { get; set; }
         public bool? InExistance { get; set; }
+        public bool? HasSizes { get; set; }
         public string Img { get; set; }
         public string ProductSize { get; set; }
     }
