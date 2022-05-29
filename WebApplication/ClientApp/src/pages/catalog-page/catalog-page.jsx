@@ -7,13 +7,8 @@ import { fetchProducts } from "../../redux/products/reducer";
 import { authUser } from "../../redux/user/reducer";
 
 
-    
-    
-
-
 
 export const CatalogPage = () => {
-
     const user = useSelector((state) => state.user.user);
     const dispatch = useDispatch()
     const products = useSelector((state) => state.products.productsList);

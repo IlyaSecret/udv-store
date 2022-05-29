@@ -10,6 +10,7 @@
     font-family: 'Hero';
     font-style: normal;
     font-weight: 400;
+    margin-bottom: 30px;
 }
 .order-card__info__id {
     font-size: 35px;

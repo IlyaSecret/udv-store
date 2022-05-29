@@ -49,7 +49,7 @@ export const RequestCard = ({user}) => {
                         <div className="modal__button">
                             <div className="modal__button__content yellow" onClick={() => {
                                 const userInfo = {
-                                    userId : user.id,
+                                    userId : [user.id],
                                     coinsAmount : ucoinsAmount
                                 }
                                 dispatch(setUserCoins(userInfo))

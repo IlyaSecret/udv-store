@@ -16,7 +16,6 @@ import {
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import { ucoinsRequestApi } from "./ucoin-req/ucoinRequestApi";
-import { ordersApi } from "./orders/ordersApi";
 
 
 const rootReducer = combineReducers({
@@ -25,13 +24,13 @@ const rootReducer = combineReducers({
     user: userReducer,
     users: allUsersReducer,
     [ucoinsRequestApi.reducerPath]: ucoinsRequestApi.reducer,
-    [ordersApi.reducerPath] : ordersApi.reducer,
+
 })
 
 const persistConfig = {
     key: 'root',
     storage,
-    blacklist: ['products', "ucoinsRequestApi", "_persist"]
+    blacklist: ['products', "_persist", "ucoinsRequestApi"]
   }
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 const store = configureStore({
