@@ -68,17 +68,17 @@ namespace WebApplication1.Controllers
             var context = new udvstoreContext();
             var user = context.Employees.Where(employee => employee.Id == id).FirstOrDefault();
             user.Balance += bonus;
-            MailAddress from = new MailAddress("markshubat@gmail.com", "admin");
-            MailAddress to = new MailAddress("lazarev01@list.ru");
-            MailMessage m = new MailMessage(from, to);
-            m.Subject = "Начисление UCoins";
-            var s = "<h2>Администратор принял ваш запрос на добавление UCoins</h2>";
-            m.Body = s;
-            m.IsBodyHtml = true;
-            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-            smtp.Credentials = new NetworkCredential("markshubat@gmail.com", "Mark022402");
-            smtp.EnableSsl = true;
-            smtp.Send(m);
+            //MailAddress from = new MailAddress("markshubat@gmail.com", "admin");
+            //MailAddress to = new MailAddress("lazarev01@list.ru");
+            //MailMessage m = new MailMessage(from, to);
+            //m.Subject = "Начисление UCoins";
+            //var s = "<h2>Администратор принял ваш запрос на добавление UCoins</h2>";
+           // m.Body = s;
+            //m.IsBodyHtml = true;
+            //SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+            //smtp.Credentials = new NetworkCredential("markshubat@gmail.com", "Mark022402");
+           // smtp.EnableSsl = true;
+            //smtp.Send(m);
             context.SaveChangesAsync();
             return Ok("добавлено");
         }

@@ -8,8 +8,8 @@ import { ModalWindow } from "../../components/modal-window/modal-window";
 
 export const GetUcoinsPage = () => {
     const [modalActive, setModalActive] = useState(false);
-    const dispatch = useDispatch();
     const user = useSelector((state) => state.user.user);
+    const [lastname, firstname, patronymic] = user?.fio.split(" ")
     const [value, setValue] = useState('');
     const [comment, setComment] = useState("");
     const options = requestNameArr.map((el, index) => <option className="option-value" key={index} id="option-value-getucoins">{el}</option>);
@@ -28,19 +28,19 @@ export const GetUcoinsPage = () => {
                 <div className="get-ucoins-page__info__lastname">
                     <label>
                         <div className="get-ucoins-page__info__title">Фамилия</div>
-                        <input id="get-ucoins-lastname"></input>
+                        <input id="get-ucoins-lastname" value={lastname}></input>
                     </label>
                 </div>
                 <div className="get-ucoins-page__info__firstname">
                 <label>
                     <div className="get-ucoins-page__info__title">Имя</div>
-                        <input id="get-ucoins-firstname" value={user.fio}></input>
+                        <input id="get-ucoins-firstname" value={firstname}></input>
                     </label>
                 </div>
                 <div className="get-ucoins-page__info__patronymic">
                 <label>
                         <div className="get-ucoins-page__info__title">Отчество</div>
-                        <input id="get-ucoins-patronymic"></input>
+                        <input id="get-ucoins-patronymic" value={patronymic}></input>
                     </label>
                 </div>
                 <div className="get-ucoins-page__info__comment">

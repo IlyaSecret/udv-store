@@ -7,7 +7,9 @@ import { RootStateOrAny, useSelector } from "react-redux";
 
 export const Header = () => {
     const user = useSelector((state:RootStateOrAny) => state.user);
-    const [isMenuVisible, setMenuVisible] = useState(false)
+    const [lastname, firstname, patronymic] = user?.user?.fio.split(" ")
+    const [isMenuVisible, setMenuVisible] = useState(false);
+
     return (
         <header className="header">
             <div className="container">
@@ -26,7 +28,7 @@ export const Header = () => {
                 <div className="header__right">
                     <div className="header__right--user-info">
                         <ul>
-                            <li>{user.user.fio}</li>
+                            <li>{firstname}</li>
                             <li className="yellow" id="small">{user.user.balance} U</li>
                         </ul>
                         

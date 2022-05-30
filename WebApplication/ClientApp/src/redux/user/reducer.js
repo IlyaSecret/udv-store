@@ -21,7 +21,7 @@ export const setUserCoins = createAsyncThunk(
   async function(userInfo) {
     try {
       let {userId, coinsAmount} = userInfo;
-      const response = await fetch(`https://localhost:5001/Employee/AddBonus`, {
+      const response = await fetch(`https://localhost:5001/Employee/AddBonusToSingle?id=${userId}&bonus=${coinsAmount}`, {
         method: "POST",
         mode: "no-cors",
       });

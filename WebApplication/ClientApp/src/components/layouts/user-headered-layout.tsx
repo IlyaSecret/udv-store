@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom"
+import { Link, Outlet } from "react-router-dom"
 import { Header } from "../header/header"
 import { useSelector, RootStateOrAny } from 'react-redux';
 
@@ -8,7 +8,7 @@ export const HeaderedLayout = () => {
   <Header />  
   <Outlet />
 </>
-    const not = <>Сначала авторизуйтесь</> ;
+    const not = <>Сначала <Link to="/sign-in" className="green" style={{}}>авторизуйтесь</Link></> ;
   if (user.status == "succes") {
     return normal;
   }
