@@ -21,7 +21,7 @@
 .modal-window__content {
     padding: 35px 45px;
     background: #444242;
-    width: 50vw;
+    min-width: 500px;
     border-radius: 16px;
     transform: scale(0.5);
     transition: 0.4s all;

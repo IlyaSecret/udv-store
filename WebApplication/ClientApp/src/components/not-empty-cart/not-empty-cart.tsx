@@ -1,19 +1,34 @@
 import React from "react";
-import { RootStateOrAny, useSelector } from "react-redux";
+import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
+import { useAddOrderMutation } from "../../redux/ucoin-req/ucoinRequestApi";
 import { GreenRegularButton } from "../buttons/green-regular-button/green-regular-button";
 import { CartContainer } from "../cart-container/cart-container";
+import { ModalWindow } from "../modal-window/modal-window";
 import "./not-empty-cart.css";
+import {useState} from 'react';
 
 export const NotEmptyCart = () => {
+    const [modalActive, setModalActive] = useState(false)
+    const user = useSelector((state : RootStateOrAny) => state.user.user);
     const cart = useSelector((state: RootStateOrAny) => state.cart.itemsInCart);
     const quantity = useSelector((state:RootStateOrAny) => state.cart.quantity);
-    
+    let [addOrder] = useAddOrderMutation()
     const totalCost = quantity.reduce((acc:number, item:any) => acc = acc + item.cost , 0);
+    const itemsCart = cart?.map((el:any) => el.id)
+    
+    const handleClick = async () => {
+        await addOrder(itemsCart);
+        setModalActive(true)
+    }
 
-    const isCartEmpty = cart.length === 0 ? true : false;
+      
     return (
             
                     <div className="cart-page">
+                        <ModalWindow active={modalActive} setActive={setModalActive}>
+                            <img src="/img/tic.png"></img> <br></br>
+                            Заказ успешно добавлен
+                        </ModalWindow>
                     <div className="cart-page-container">
                 <CartContainer />
             </div>
@@ -25,7 +40,7 @@ export const NotEmptyCart = () => {
                 </div>
                 <div className="cart-page__info__balance">
                     <p className="clear-cart">ваш баланс:</p>
-                    <p>3700</p>
+                    <p>{user.balance}</p>
                 </div>
                 <div className="line"></div>
 
@@ -34,7 +49,7 @@ export const NotEmptyCart = () => {
                     <p>{totalCost}</p>
                 </div>
 
-                <div className="cart-page__info__button">
+                <div className="cart-page__info__button" onClick={() => handleClick()}>
                     <GreenRegularButton value="Оплатить" color="#00D29D"/>
                 </div>
             </div>

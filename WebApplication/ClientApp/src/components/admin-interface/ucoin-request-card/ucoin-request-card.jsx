@@ -1,9 +1,6 @@
-import React from "react";
 import "./ucoin-request-card.css";
 import {useState} from 'react';
 import { ModalWindow } from "../../modal-window/modal-window";
-import { GreenRegularButton } from "../../buttons/green-regular-button/green-regular-button";
-import { RequestSelect } from "./request-select/request-select";
 import { requestNameArr, REQUEST_ARR } from '../../../utils/ucoins-request';
 import { useDispatch } from "react-redux";
 import { setUserCoins } from "../../../redux/user/reducer";
@@ -12,10 +9,15 @@ export const RequestCard = ({user}) => {
     const dispatch = useDispatch();
     const [value, setValue] = useState('');
     const [modalActive, setModalActive] = useState(false);
+    const [secondModalActive, setSecondModalActive] = useState(false);
     let ucoinsAmount = REQUEST_ARR[value];
     const options = requestNameArr.map((el, index) => <option className="option-value" key={index}>{el}</option>);
     return (
         <div className="request-card">
+            <ModalWindow active={secondModalActive} setActive={setSecondModalActive}>
+                <img src="/img/tic.png"></img> <br></br>
+                Успешно начислено
+            </ModalWindow>
             <ModalWindow active={modalActive} setActive={setModalActive}>
                 <div className="modal">
                     <div className="modal__content">
@@ -47,10 +49,12 @@ export const RequestCard = ({user}) => {
                         <div className="modal__button">
                             <div className="modal__button__content yellow" onClick={() => {
                                 const userInfo = {
-                                    userId : user.id,
+                                    userId : [user.id],
                                     coinsAmount : ucoinsAmount
                                 }
                                 dispatch(setUserCoins(userInfo))
+                                setModalActive(false);
+                                setSecondModalActive(true)
                                 }}>Начислить</div>
                         </div>
                     </div>

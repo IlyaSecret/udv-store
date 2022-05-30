@@ -50,7 +50,7 @@ namespace WebApplication1.Controllers
             context.Employees.Where(employee => employee.Id == Startup.currentUser.Id).FirstOrDefault().Balance -= price;
             context.Orders.Add(order);
             context.SaveChanges();
-            return Ok("заказ сформирован");
+            return Ok(order);
         }
 
         [HttpPost]

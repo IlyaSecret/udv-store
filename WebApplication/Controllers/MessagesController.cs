@@ -53,22 +53,22 @@ namespace WebApplication1.Controllers
         {
             var context = new udvstoreContext();
             var message = context.Messages.Where(message => message.Id == id).FirstOrDefault();
-            var user = context.Employees.Where(user => user.Fio == message.Fio).FirstOrDefault();
+            //var user = context.Employees.Where(user => user.Fio == message.Fio).FirstOrDefault();
             context.Messages.Remove(message);
             context.SaveChangesAsync();
-            MailAddress from = new MailAddress("markshubat@gmail.com", "admin");
-            MailAddress to = new MailAddress("markshubat@gmail.com");
-            MailMessage m = new MailMessage(from, to);
-            m.Subject = "Тест";
-            var s = "<h2>Письмо отправлено для user</h2>";
-            var messageString = s.Replace("user", user.Email);
-            m.Body = messageString;
-            m.IsBodyHtml = true;
-            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-            smtp.Credentials = new NetworkCredential("markshubat@gmail.com", "Mark022402");
-            smtp.EnableSsl = true;
-            smtp.Send(m);
-            return Ok("Запрос на получение Ucoin отклонен, на почту направлено письмо");
+            //MailAddress from = new MailAddress("markshubat@gmail.com", "admin");
+            //MailAddress to = new MailAddress("markshubat@gmail.com");
+            //MailMessage m = new MailMessage(from, to);
+            //m.Subject = "Тест";
+            //var s = "<h2>Письмо отправлено для user</h2>";
+            //var messageString = s.Replace("user", user.Email);
+            //m.Body = messageString;
+            //m.IsBodyHtml = true;
+            //SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+            //smtp.Credentials = new NetworkCredential("ilyakosyakov2000@mail.ru", "140902140902Bkmz");
+            //smtp.EnableSsl = true;
+            //smtp.Send(m);
+            return Ok(message);
         }
     }
 

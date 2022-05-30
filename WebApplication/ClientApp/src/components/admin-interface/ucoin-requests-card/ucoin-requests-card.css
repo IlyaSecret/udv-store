@@ -1,7 +1,7 @@
 .ucoin-requests-card {
     width: 100%;
     background-color: #3A3838;
-    height: 250px;
+    min-height: 250px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 12px;
     padding: 40px;
@@ -62,4 +62,36 @@
 }
 .ucoin-requests-card__info__ucoins {
     color: #F2CB05;
+}
+.ucoin-requests-card__buttons {
+    margin-top: 40px;
+    font-size: 22px;
+    text-align: end;
+}
+.ucoin-requests-card__accept, .ucoin-requests-card__refuse {
+    display: inline-block;
+    cursor: pointer;
+    padding-right: 60px;
+}
+.ucoin-requests-card__title {
+    font-family: 'Hero';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 38px;
+    margin-top: -25px;
+    margin-bottom: 45px;
+}
+.ucoin-requests-card__name {
+    margin-bottom: 45px;
+}
+.get-ucoins-comment {
+    margin-bottom: 35px;
+}
+.refuse_request {
+    
+    margin-right: -450px;
+}
+.ucoin-requests-card__info__comment {
+    margin-top: 10px;
 }

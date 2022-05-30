@@ -18,6 +18,7 @@ export const CatalogItem = ({product}:{product : any}) => {
         dispatch(setCurrentProduct({product}))
         navigate(`/catalog/${product.title}`);
     }
+    
 
     const isAvalable = () => {
         return product.inExistance ? "В наличии" : "Нет в наличии";

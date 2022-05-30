@@ -14,6 +14,8 @@ import store, { persistor } from './redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { GetUcoinsPage } from './pages/get-ucoins-page/get-ucoins-page';
 import { UcoinRequestPage } from './components/admin-interface/admin-pages/ucoin-requests-page/ucoin-requests-page';
+import { AdminOrders } from './components/admin-interface/admin-pages/admin-orders/admin-orders';
+import { AdminMerch } from './components/admin-interface/admin-pages/admin-merch/admin-merch';
 
 function App() {
   
@@ -38,6 +40,8 @@ function App() {
               <Route path='/admin' element={<AdminHeaderedLayout/>}>
                 <Route path='accural-ucoins' element={<AccuralUcoinsPage />}></Route>
                 <Route path='ucoin-requests' element={<UcoinRequestPage />}></Route>
+                <Route path='admin-orders' element={<AdminOrders />}></Route>
+                <Route path='admin-merch' element={<AdminMerch />}></Route>
               </Route>
             </Routes>
           </div>

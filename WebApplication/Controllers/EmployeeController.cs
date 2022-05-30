@@ -54,10 +54,10 @@ namespace WebApplication1.Controllers
                 var messageString = s.Replace("user", user.Email);
                 m.Body = messageString;
                 m.IsBodyHtml = true;
-                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-                smtp.Credentials = new NetworkCredential("markshubat@gmail.com", "Mark022402");
-                smtp.EnableSsl = true;
-                smtp.Send(m);
+               // SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+               // smtp.Credentials = new NetworkCredential("markshubat@gmail.com", "Mark022402");
+               // smtp.EnableSsl = true;
+               // smtp.Send(m);
             }
             context.SaveChangesAsync();
             return Ok("добавлено");

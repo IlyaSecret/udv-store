@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { GreenRegularButton } from "../../components/buttons/green-regular-button/green-regular-button";
 import "./product-page.css";
 import { SizeButtons } from '../../components/buttons/size-button/size-button';
@@ -6,10 +6,12 @@ import { useSelector, RootStateOrAny, useDispatch } from 'react-redux';
 import { ProductCover } from "../../components/product-cover/product-cover";
 import {setProductInCart, deleteProductFromCart} from "../../redux/cart/reducer";
 import { PRODUCTS_TITLES } from "../../utils/products-titles";
+import { ModalWindow } from "../../components/modal-window/modal-window";
+import { Link } from "react-router-dom";
 
  
 export const ProductPage = () => {
-
+    const [modalActive, setModalActive] = useState(false);
     const cart = useSelector((state: RootStateOrAny) => state.cart.itemsInCart);
     const dispatch = useDispatch();
     const products = useSelector((state : RootStateOrAny)=> state.products.currentProduct.product)
@@ -17,14 +19,20 @@ export const ProductPage = () => {
 
     const handleClick = () => {
         dispatch(setProductInCart(products))
+        setModalActive(true);
     }
     let size;
-    if (products.haveSize) {
+    if (products.hasSizes) {
         size = <SizeButtons></SizeButtons>
     }
 
     return (
         <div className="product-page">
+            <ModalWindow active={modalActive} setActive={setModalActive}>
+                <img src="/img/cart.png"></img> <br></br>
+                Товар успешно добавлен в <br></br>корзину!<br></br>
+                <Link to="/cart" className="green">Перейти к корзине</Link>
+         </ModalWindow>
             <div className="product-page__head">
 
                 <div className="product-page__image">
