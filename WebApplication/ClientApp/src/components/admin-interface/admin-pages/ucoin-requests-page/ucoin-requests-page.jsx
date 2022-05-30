@@ -11,7 +11,6 @@ export const UcoinRequestPage = () => {
         disppatch(getAllUsers());
     }, [disppatch]);
     let {data, error} = useGetRequestsQuery();
-    console.log(error);
     return (
         <div className="ucoin-requests-page">
             {data?.map(request => <UcoinRequestsCard request={request} key={request.id}/>)}

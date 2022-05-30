@@ -5,19 +5,24 @@ import { GreenRegularButton } from "../../components/buttons/green-regular-butto
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { authUser } from "../../redux/user/reducer";
+import { ModalWindow } from "../../components/modal-window/modal-window";
 
 export const LoginPage = () => {
+    const [modalActive, setModalActive] = useState(false)
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
     const user = useSelector(state => state.user);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     useEffect(() => {
-        if (user.status == "succes") {
+        if (user.status == "succes" && user.user.fio === "admin") {
+            navigate("/admin/ucoin-requests")
+        }
+        else if (user?.status == "succes") {
             navigate("/catalog")
         }
         else {
-            console.log("Нет");
+            <ModalWindow active={modalActive} setActive={setModalActive}>Неправильный логин или пароль</ModalWindow>
         }
     }, [user.status])
     return (

@@ -7,7 +7,6 @@ import { useGetProductsQuery } from "../../redux/ucoin-req/ucoinRequestApi";
 export const OrderCard = ({order} : {order:any}) => {
     
     let {data, error} = useGetProductsQuery(order.id);
-    console.log(data);
     
     return (
         <div className="order-card">

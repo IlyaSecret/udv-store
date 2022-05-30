@@ -54,6 +54,9 @@ export const UcoinRequestsCard = ({request}) => {
                     <div className="ucoin-requests-card__info__comment">
                         {request.comment}
                     </div>
+                    <div className="ucoin-requests-card__info__comment">
+                        {requestNameArr[request.requestType] }
+                    </div>
                     <div className="ucoin-requests-card__info__ucoins">
                         {REQUEST_ARR[requestIndex]} U
                     </div>
@@ -65,7 +68,7 @@ export const UcoinRequestsCard = ({request}) => {
                             coinsAmount : REQUEST_ARR[requestIndex]
                         }
                         dispatch(setUserCoins(userInfo));
-                        handleClick();
+                        remove();
                     }}>
                         Начислить
                     </div>

@@ -30,7 +30,7 @@ const rootReducer = combineReducers({
 const persistConfig = {
     key: 'root',
     storage,
-    blacklist: ['products', "_persist", "ucoinsRequestApi"]
+    blacklist: ["_persist", "ucoinsRequestApi", "user"]
   }
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 const store = configureStore({

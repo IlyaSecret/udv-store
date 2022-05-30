@@ -22,7 +22,7 @@ export const ProductPage = () => {
         setModalActive(true);
     }
     let size;
-    if (products.haveSize) {
+    if (products.hasSizes) {
         size = <SizeButtons></SizeButtons>
     }
 

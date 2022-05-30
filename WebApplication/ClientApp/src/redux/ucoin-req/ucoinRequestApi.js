@@ -71,8 +71,19 @@ export const ucoinsRequestApi = createApi({
             }),
             invalidatesTags: [{ type: 'Orders', id: 'LIST' }],
         }),
+        changeOrderStatus : build.mutation({
+            query: (id) => ({
+    
+                url : `/Orders/ChangeStatus?id=${id}`,
+                method: "POST",
+                responseHandler: (response) => {
+                    return response.json();
+                }
+            }),
+            invalidatesTags: [{ type: 'Orders', id: 'LIST' }],
+        }),
         
     })
 })
 
-export const { useGetRequestsQuery, useAddRequestMutation, useRemoveRequestMutation, useGetOrdersQuery, useGetProductsQuery, useAddOrderMutation } = ucoinsRequestApi;
+export const { useGetRequestsQuery, useAddRequestMutation, useRemoveRequestMutation, useGetOrdersQuery, useGetProductsQuery, useAddOrderMutation, useChangeOrderStatusMutation } = ucoinsRequestApi;
