@@ -5,12 +5,13 @@ import "./catalog-page.css";
 import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
 import { fetchProducts } from "../../redux/products/reducer";
 import { authUser } from "../../redux/user/reducer";
-import { firstName } from "../../utils/names";
 
 
 
 export const CatalogPage = () => {
     const user = useSelector((state) => state.user.user);
+    const [lastName, firstName, patronymic] = user.fio.split(" ")
+    console.log(lastName, firstName, patronymic);
     const dispatch = useDispatch()
     const products = useSelector((state) => state.products.productsList);
     useEffect(() => {
