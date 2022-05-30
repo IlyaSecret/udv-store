@@ -1,12 +1,11 @@
 .request-card {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 33% 33% 33% ;
     padding: 5px 70px;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 43px;
-    text-align: center;
     border-bottom: 1px solid white;
     margin: 0 40px;
 }
@@ -87,5 +86,9 @@ option {
 .req-input {
     font-size: 15px;
 }
-.request-card__email {
+.request-card__name {
+    text-align: start;
+}
+.request-card__acc-ucoins {
+    text-align: end;
 }

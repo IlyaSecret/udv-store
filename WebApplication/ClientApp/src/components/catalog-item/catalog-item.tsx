@@ -16,7 +16,7 @@ export const CatalogItem = ({product}:{product : any}) => {
 
     const handleClick = () => {
         dispatch(setCurrentProduct({product}))
-        navigate(`/catalog/${product.title}`);
+        navigate(`/catalog/${product.productName}`);
     }
     
 

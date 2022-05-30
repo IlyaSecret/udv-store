@@ -9,6 +9,7 @@ import { useSelector, RootStateOrAny } from 'react-redux';
 export const AdminHeader = () => {
     const [isMenuVisible, setMenuVisible] = useState(false)
     const user = useSelector((state : RootStateOrAny) => state.user.user);
+    
     return (
             <header className="header">
             <div className="container">
