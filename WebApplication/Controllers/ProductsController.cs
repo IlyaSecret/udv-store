@@ -43,6 +43,7 @@ namespace WebApplication1.Controllers
             
             foreach(var elem in products)
             {
+                
                 context.Products.Add(elem);
             }
             context.SaveChanges();
