@@ -57,12 +57,11 @@ namespace WebApplication1.Controllers
             context.Messages.Remove(message);
             context.SaveChangesAsync();
             MailAddress from = new MailAddress("markshubat@gmail.com", "admin");
-            MailAddress to = new MailAddress("markshubat@gmail.com");
+            MailAddress to = new MailAddress("lazarev01@list.ru");
             MailMessage m = new MailMessage(from, to);
-            m.Subject = "Тест";
-            var s = "<h2>Письмо отправлено для user</h2>";
-            var messageString = s.Replace("user", user.Email);
-            m.Body = messageString;
+            m.Subject = "Начисление UCoins";
+            var s = "<h2>Администратор отклонил ваш запрос на получение UCoins</h2>";
+            m.Body = s;
             m.IsBodyHtml = true;
             SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
             smtp.Credentials = new NetworkCredential("markshubat@gmail.com", "Mark022402");
