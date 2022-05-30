@@ -40,13 +40,13 @@ export const NotEmptyCart = () => {
                 </div>
                 <div className="cart-page__info__balance">
                     <p className="clear-cart">ваш баланс:</p>
-                    <p>{user.balance}</p>
+                    <p>{user.balance} U</p>
                 </div>
                 <div className="line"></div>
 
                 <div className="cart-page__info__result">
                     <p className="total_cost_title">Итого</p>
-                    <p>{totalCost}</p>
+                    <p>{totalCost} U</p>
                 </div>
 
                 <div className="cart-page__info__button" onClick={() => handleClick()}>

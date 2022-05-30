@@ -44,7 +44,7 @@ namespace WebApplication1.Controllers
             order.OrderStatus = 1;
             var price = GetProductsPrice(data.products);
             if (Startup.currentUser.Balance < price)
-                return Ok("Не хватает средств");
+                return BadRequest("Не хватает средств");
             var context = new udvstoreContext();
             Startup.currentUser.Balance -= price;
             context.Employees.Where(employee => employee.Id == Startup.currentUser.Id).FirstOrDefault().Balance -= price;
