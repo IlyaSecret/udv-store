@@ -35,7 +35,7 @@ export const UcoinsRules = () => {
                 {requestNameArr.map(el => <UcoinsRulesCard position={el}/>)}
             </div>
             <div className="ucoins-rules__download">
-                <a src="" className="green" download>Скачать</a> информацию о правилах и позициях
+                <a href="/rules/Pravila_nachislenia_Ucoins.pdf" className="green underline" download>Скачать</a> информацию о правилах и позициях
             </div>
         </div>
     );
