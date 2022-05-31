@@ -38,7 +38,7 @@ export const NotEmptyCart = () => {
                         </ModalWindow>
                         <ModalWindow active={secondModalActive} setActive={setSecondModalActive}>
                             <img src="/img/x.png"></img> <br></br>
-                            Не достаточно Юкоинов
+                            Недостаточно Ucoins
                         </ModalWindow>
                     <div className="cart-page-container">
                 <CartContainer />

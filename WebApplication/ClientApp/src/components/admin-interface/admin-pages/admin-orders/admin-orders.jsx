@@ -1,9 +1,13 @@
 import { useGetOrdersQuery } from "../../../../redux/ucoin-req/ucoinRequestApi"
+import { EmptyComponent } from "../../../empty-orders/empty-orders"
 import { AdminOrderCard } from "../../admin-order-card/admin-order-card"
 import "./admin-orders.css"
 
 export const AdminOrders = () => {
     let {data, error} = useGetOrdersQuery()
+    if (data?.length === 0) {
+        return <EmptyComponent value="Заказов нет"/>
+    }else {
     return (
         <div className="admin-orders">
             <div className="admin-orders__head">
@@ -18,4 +22,5 @@ export const AdminOrders = () => {
             </div>
         </div>
     )
+}
 }

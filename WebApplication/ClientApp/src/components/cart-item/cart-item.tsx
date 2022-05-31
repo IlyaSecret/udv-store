@@ -31,7 +31,7 @@ export const CartItem = ({item}:{item:any}) => {
                 <CartItemCount item = {item}/>
 
                 <div className="cart-item__price">
-                    {item.price * quantity[index].qantyt} U
+                    {item.price * quantity[index].qantyt}U
                 </div>
                 <div className="delete-item" onClick={ deleteItem }>
                     <img src="/img/x.png" id="cart-cross"></img>
