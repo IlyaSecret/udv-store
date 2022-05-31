@@ -1,0 +1,56 @@
+.rules_list {
+    counter-increment: my-awesome-counter;
+    margin: 0.25rem;
+    margin-bottom: 25px;
+    font-size: 24px;
+  }
+  .ucoins-rules__accural-rules__list {
+      text-align: start;
+  }
+  .rules_list::before {
+    content: counter(my-awesome-counter);
+    background: #00D29D;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    display: inline-block;
+    line-height: 2rem;
+    color: white;
+    text-align: center;
+    margin-right: 1rem;
+    font-size: 0;
+  }
+.ucoins-rules__accural-rules__title {
+      margin-bottom: 50px;
+}
+.ucoins-rules__accural-rules {
+    margin-bottom: 180px;
+    padding: 0 200px;
+}
+.rules_vk {
+    text-align: start;
+}
+.ucoins-rules__octopus {
+    position: absolute;
+    top: 450px;
+    left: 930px;
+}
+.ucoins-rules__positions__title {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    margin: 0 180px;
+    padding: 10px 20px;
+    border-bottom: 1px solid white;
+    font-size: 30px;
+}
+.ucoins-rules__positions__title__position {
+    text-align: start;
+}
+.ucoins-rules__positions {
+    margin-bottom: 100px;
+}
+.ucoins-rules__download{
+    text-align: end;
+    margin-bottom: 50px;
+    font-size: 22px;
+}

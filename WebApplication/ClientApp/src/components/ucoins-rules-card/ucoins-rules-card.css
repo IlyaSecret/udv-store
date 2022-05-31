@@ -1,0 +1,15 @@
+.ucoins-rules-card__item {
+    margin: 0 180px;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    padding: 10px 20px ;
+    border-bottom: 1px solid gray;
+}
+.ucoins-rules-card__item__position {
+    text-align: start;
+    font-size: 22px;
+}
+.ucoins-rules-card__item__amount {
+    color: #F2CB05;
+    font-size: 30px;
+}

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lazar\\Documents\\GitHub\\udv-store2\\WebApplication\\WebApplication1.csproj": {}
+    "D:\\projects\\udv-store\\udv-store\\WebApplication\\WebApplication1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lazar\\Documents\\GitHub\\udv-store2\\WebApplication\\WebApplication1.csproj": {
+    "D:\\projects\\udv-store\\udv-store\\WebApplication\\WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lazar\\Documents\\GitHub\\udv-store2\\WebApplication\\WebApplication1.csproj",
+        "projectUniqueName": "D:\\projects\\udv-store\\udv-store\\WebApplication\\WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "C:\\Users\\lazar\\Documents\\GitHub\\udv-store2\\WebApplication\\WebApplication1.csproj",
-        "packagesPath": "C:\\Users\\lazar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lazar\\Documents\\GitHub\\udv-store2\\WebApplication\\obj\\",
+        "projectPath": "D:\\projects\\udv-store\\udv-store\\WebApplication\\WebApplication1.csproj",
+        "packagesPath": "C:\\Users\\ilyak\\.nuget\\packages\\",
+        "outputPath": "D:\\projects\\udv-store\\udv-store\\WebApplication\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lazar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ilyak\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -71,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

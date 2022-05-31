@@ -16,6 +16,7 @@ import { GetUcoinsPage } from './pages/get-ucoins-page/get-ucoins-page';
 import { UcoinRequestPage } from './components/admin-interface/admin-pages/ucoin-requests-page/ucoin-requests-page';
 import { AdminOrders } from './components/admin-interface/admin-pages/admin-orders/admin-orders';
 import { AdminMerch } from './components/admin-interface/admin-pages/admin-merch/admin-merch';
+import { UcoinsRules } from './pages/ucoins-rules/ucoins-rules';
 
 function App() {
   
@@ -33,6 +34,7 @@ function App() {
                 <Route path='catalog/:title' element={<ProductPage/>}></Route>
                 <Route path='get-ucoins' element={<GetUcoinsPage />}></Route>
                 <Route path='orders' element={<OrdersPage/>}></Route>
+                <Route path='rules' element={<UcoinsRules/>}></Route>
               </Route>
               <Route path='/sign-in' element={<LoginPage />}></Route>
             </Routes>
