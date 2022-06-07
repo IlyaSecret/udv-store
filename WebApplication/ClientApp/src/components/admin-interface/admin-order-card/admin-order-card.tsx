@@ -4,7 +4,7 @@ import { useChangeOrderStatusMutation, useGetProductsQuery } from "../../../redu
 
 export const AdminOrderCard = ({order } : {order : any}) => {
     let {data, error} = useGetProductsQuery(order.id);
-    let names = data?.map((el : any) => el.productName)
+    let names = data?.map((el : any) => el.productName + ' ')
     let [changeStatus] = useChangeOrderStatusMutation();
     const clickHandler = async () => {
         await changeStatus(order.id);

@@ -104,3 +104,6 @@ C:\Users\lazar\Documents\GitHub\udv-store2\WebApplication\obj\Debug\net5.0\refin
 C:\Users\lazar\Documents\GitHub\udv-store2\WebApplication\obj\Debug\net5.0\WebApplication1.pdb
 C:\Users\lazar\Documents\GitHub\udv-store2\WebApplication\obj\Debug\net5.0\WebApplication1.genruntimeconfig.cache
 C:\Users\lazar\Documents\GitHub\udv-store2\WebApplication\obj\Debug\net5.0\ref\WebApplication1.dll
+C:\Users\lazar\Documents\GitHub\udv-store2\WebApplication\bin\Debug\net5.0\Npgsql.dll
+C:\Users\lazar\Documents\GitHub\udv-store2\WebApplication\bin\Debug\net5.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\lazar\Documents\GitHub\udv-store2\WebApplication\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll

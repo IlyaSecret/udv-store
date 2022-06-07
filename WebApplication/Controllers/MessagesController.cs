@@ -28,7 +28,7 @@ namespace WebApplication1.Controllers
         public IActionResult SendMessage(Message data)
         {
             var context = new udvstoreContext();
-            var message = new Messages { Fio = Startup.currentUser.Fio, Email = Startup.currentUser.Email, Comment = data.Comment, RequestType = data.Type, userId = Startup.currentUser.Id};
+            var message = new Messages { Fio = Startup.currentUser.Fio, Email = Startup.currentUser.Email, Comment = data.Comment, Requesttype = data.Type, Userid = Startup.currentUser.Id};
             context.Messages.Add(message);
             context.SaveChangesAsync();
             return Ok(message);
@@ -53,7 +53,6 @@ namespace WebApplication1.Controllers
         {
             var context = new udvstoreContext();
             var message = context.Messages.Where(message => message.Id == id).FirstOrDefault();
-            var user = context.Employees.Where(user => user.Fio == message.Fio).FirstOrDefault();
             context.Messages.Remove(message);
             context.SaveChangesAsync();
             MailAddress from = new MailAddress("markshubat@gmail.com", "admin");

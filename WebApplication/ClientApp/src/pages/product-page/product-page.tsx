@@ -15,14 +15,14 @@ export const ProductPage = () => {
     const cart = useSelector((state: RootStateOrAny) => state.cart.itemsInCart);
     const dispatch = useDispatch();
     const products = useSelector((state : RootStateOrAny)=> state.products.currentProduct.product)
-    const title = products.productName;
+    const title = products.productname;
 
     const handleClick = () => {
         dispatch(setProductInCart(products))
         setModalActive(true);
     }
     let size;
-    if (products.hasSizes) {
+    if (products.hassizes) {
         size = <SizeButtons></SizeButtons>
     }
 

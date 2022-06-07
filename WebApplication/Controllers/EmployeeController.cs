@@ -13,19 +13,21 @@ namespace WebApplication1.Controllers
     [Route("[controller]")]
     [ApiController]
     public class EmployeeController : ControllerBase
-    {
+    { 
        [HttpGet]
        [Route("Get")]
         public IEnumerable<Employees> Get()
-        {
-            var context = new udvstoreContext();
-            var hoodie = context.Products.Where(product => product.Id == 11).FirstOrDefault();
-            foreach(var elem in context.Products)
+        {   var context = new udvstoreContext();
+            /*var employees = new List<Employees>
             {
-                elem.InExistance = true;
-                if (elem.Id != 11) elem.HasSizes = false;
+                new Employees { Fio = "admin", Email = "admin", Pass = "admin", Balance = 12}
+            };
+            
+            foreach (var elem in employees) 
+            { 
+                context.Employees.Add(elem);
             }
-            context.SaveChanges();
+            context.SaveChanges();*/
             return context.Employees.ToList();           
         }
 
@@ -53,10 +55,10 @@ namespace WebApplication1.Controllers
                 var s = "<h2>Администратор принял ваш запрос на добавление UCoins</h2>";
                 m.Body = s;
                 m.IsBodyHtml = true;
-               // SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-               // smtp.Credentials = new NetworkCredential("markshubat@gmail.com", "Mark022402");
-               // smtp.EnableSsl = true;
-               // smtp.Send(m);
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                smtp.Credentials = new NetworkCredential("markshubat@gmail.com", "Mark022402");
+                smtp.EnableSsl = true;
+                smtp.Send(m);
             }
             context.SaveChangesAsync();
             return Ok("добавлено");
@@ -68,17 +70,17 @@ namespace WebApplication1.Controllers
             var context = new udvstoreContext();
             var user = context.Employees.Where(employee => employee.Id == id).FirstOrDefault();
             user.Balance += bonus;
-            //MailAddress from = new MailAddress("markshubat@gmail.com", "admin");
-            //MailAddress to = new MailAddress("lazarev01@list.ru");
-            //MailMessage m = new MailMessage(from, to);
-            //m.Subject = "Начисление UCoins";
-            //var s = "<h2>Администратор принял ваш запрос на добавление UCoins</h2>";
-           // m.Body = s;
-            //m.IsBodyHtml = true;
-            //SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-            //smtp.Credentials = new NetworkCredential("markshubat@gmail.com", "Mark022402");
-           // smtp.EnableSsl = true;
-            //smtp.Send(m);
+            MailAddress from = new MailAddress("markshubat@gmail.com", "admin");
+            MailAddress to = new MailAddress("lazarev01@list.ru");
+            MailMessage m = new MailMessage(from, to);
+            m.Subject = "Начисление UCoins";
+            var s = "<h2>Администратор принял ваш запрос на добавление UCoins</h2>";
+            m.Body = s;
+            m.IsBodyHtml = true;
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+            smtp.Credentials = new NetworkCredential("markshubat@gmail.com", "Mark022402");
+            smtp.EnableSsl = true;
+            smtp.Send(m);
             context.SaveChangesAsync();
             return Ok("добавлено");
         }

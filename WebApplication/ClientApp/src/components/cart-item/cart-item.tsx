@@ -4,6 +4,7 @@ import { CartCover } from '../cart-cover/cart-cover';
 import { CartItemCount } from "./cart-item-count";
 import { deleteProductFromCart } from "../../redux/cart/reducer";
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
+import { PRODUCTS_TITLES } from "../../utils/products-titles";
 
 export const CartItem = ({item}:{item:any}) => {
 
@@ -25,7 +26,7 @@ export const CartItem = ({item}:{item:any}) => {
                 </div>
                 
                 <div className="cart-item__title">
-                    {item.productName}
+                    {PRODUCTS_TITLES[item.productname]}
                 </div>
                 
                 <CartItemCount item = {item}/>

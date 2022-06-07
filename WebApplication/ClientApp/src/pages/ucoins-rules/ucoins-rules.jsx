@@ -29,7 +29,7 @@ export const UcoinsRules = () => {
                         Позиция
                     </div>
                     <div className="ucoins-rules__positions__title__ucoins yellow">
-                        Начилсение
+                        Начисление
                     </div>
                 </div>
                 {requestNameArr.map(el => <UcoinsRulesCard position={el}/>)}

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\projects\\udv-store\\udv-store\\WebApplication\\WebApplication1.csproj": {}
+    "C:\\Users\\lazar\\Documents\\GitHub\\udv-store2\\WebApplication\\WebApplication1.csproj": {}
   },
   "projects": {
-    "D:\\projects\\udv-store\\udv-store\\WebApplication\\WebApplication1.csproj": {
+    "C:\\Users\\lazar\\Documents\\GitHub\\udv-store2\\WebApplication\\WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\projects\\udv-store\\udv-store\\WebApplication\\WebApplication1.csproj",
+        "projectUniqueName": "C:\\Users\\lazar\\Documents\\GitHub\\udv-store2\\WebApplication\\WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "D:\\projects\\udv-store\\udv-store\\WebApplication\\WebApplication1.csproj",
-        "packagesPath": "C:\\Users\\ilyak\\.nuget\\packages\\",
-        "outputPath": "D:\\projects\\udv-store\\udv-store\\WebApplication\\obj\\",
+        "projectPath": "C:\\Users\\lazar\\Documents\\GitHub\\udv-store2\\WebApplication\\WebApplication1.csproj",
+        "packagesPath": "C:\\Users\\lazar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lazar\\Documents\\GitHub\\udv-store2\\WebApplication\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ilyak\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lazar\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -48,6 +48,20 @@
               "target": "Package",
               "version": "[3.1.0, )"
             },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[4.1.2, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
@@ -71,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

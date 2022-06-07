@@ -41,7 +41,7 @@ namespace WebApplication1.Controllers
             var order = new Orders();
             order.Fio = Startup.currentUser.Fio;
             order.Items = String.Join(' ',data.products);
-            order.OrderStatus = 1;
+            order.Orderstatus = 1;
             var price = GetProductsPrice(data.products);
             if (Startup.currentUser.Balance < price)
                 return BadRequest("Не хватает средств");
@@ -59,7 +59,7 @@ namespace WebApplication1.Controllers
         {
             var context = new udvstoreContext();
             var order = context.Orders.Where(order => order.Id == id).FirstOrDefault();
-            if (order.OrderStatus < 4) order.OrderStatus += 1;
+            if (order.Orderstatus < 4) order.Orderstatus += 1;
             context.SaveChanges();
             return Ok("Статус изменен");
         }
@@ -70,7 +70,7 @@ namespace WebApplication1.Controllers
         {
             var context = new udvstoreContext();
             var order = context.Orders.Where(order => order.Id == id).FirstOrDefault();
-            order.OrderStatus = 5;
+            order.Orderstatus = 5;
             context.SaveChanges();
             return Ok("Заказ отменен");
         }

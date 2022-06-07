@@ -8,6 +8,6 @@ namespace WebApplication1.Models
         public int Id { get; set; }
         public string Fio { get; set; }
         public string Items { get; set; }
-        public int? OrderStatus { get; set; }
+        public int? Orderstatus { get; set; }
     }
 }

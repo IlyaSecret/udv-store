@@ -12,16 +12,16 @@ export const CatalogItem = ({product}:{product : any}) => {
     
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const title = product.productName;
+    const title = product.productname;
 
     const handleClick = () => {
         dispatch(setCurrentProduct({product}))
-        navigate(`/catalog/${product.productName}`);
+        navigate(`/catalog/${product.productname}`);
     }
     
 
     const isAvalable = () => {
-        return product.inExistance ? "В наличии" : "Нет в наличии";
+        return product.inexistance ? "В наличии" : "Нет в наличии";
     }
     return (
         <div className="catalog-item" onClick={ handleClick }>

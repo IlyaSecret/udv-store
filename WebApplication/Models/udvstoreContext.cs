@@ -24,8 +24,7 @@ namespace WebApplication1.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                var connstring = Startup.ConnectionString;
-                optionsBuilder.UseSqlServer(connstring);
+                optionsBuilder.UseNpgsql(Startup.ConnectionString);
             }
         }
 
@@ -33,79 +32,102 @@ namespace WebApplication1.Models
         {
             modelBuilder.Entity<Employees>(entity =>
             {
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.ToTable("employees");
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .UseIdentityAlwaysColumn();
 
                 entity.Property(e => e.Balance).HasColumnName("balance");
 
                 entity.Property(e => e.Basket)
                     .HasColumnName("basket")
-                    .IsUnicode(false);
+                    .HasMaxLength(100);
 
                 entity.Property(e => e.Email)
                     .HasColumnName("email")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .HasMaxLength(100);
 
                 entity.Property(e => e.Fio)
                     .HasColumnName("fio")
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
+                    .HasMaxLength(100);
 
-                entity.Property(e => e.Img)
-                    .HasColumnName("img")
-                    .IsUnicode(false);
+                entity.Property(e => e.Img).HasColumnName("img");
 
                 entity.Property(e => e.Orders)
                     .HasColumnName("orders")
-                    .IsUnicode(false);
+                    .HasMaxLength(100);
 
                 entity.Property(e => e.Pass)
                     .HasColumnName("pass")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .HasMaxLength(100);
             });
 
             modelBuilder.Entity<Messages>(entity =>
             {
-                entity.Property(e => e.Email).HasMaxLength(50);
+                entity.ToTable("messages");
 
-                entity.Property(e => e.Fio).HasMaxLength(200);
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .UseIdentityAlwaysColumn();
+
+                entity.Property(e => e.Comment).HasColumnName("comment");
+
+                entity.Property(e => e.Email)
+                    .HasColumnName("email")
+                    .HasMaxLength(100);
+
+                entity.Property(e => e.Fio)
+                    .HasColumnName("fio")
+                    .HasMaxLength(100);
+
+                entity.Property(e => e.Requesttype).HasColumnName("requesttype");
+
+                entity.Property(e => e.Userid).HasColumnName("userid");
             });
 
             modelBuilder.Entity<Orders>(entity =>
             {
-                entity.Property(e => e.Fio).HasMaxLength(100);
+                entity.ToTable("orders");
 
-                entity.Property(e => e.Items).HasMaxLength(1000);
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .UseIdentityAlwaysColumn();
+
+                entity.Property(e => e.Fio)
+                    .HasColumnName("fio")
+                    .HasMaxLength(100);
+
+                entity.Property(e => e.Items).HasColumnName("items");
+
+                entity.Property(e => e.Orderstatus).HasColumnName("orderstatus");
             });
 
             modelBuilder.Entity<Products>(entity =>
             {
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.ToTable("products");
 
-                entity.Property(e => e.Img)
-                    .HasColumnName("img")
-                    .IsUnicode(false);
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .UseIdentityAlwaysColumn();
 
-                entity.Property(e => e.InExistance).HasColumnName("inExistance");
+                entity.Property(e => e.Hassizes).HasColumnName("hassizes");
 
-                entity.Property(e => e.HasSizes).HasColumnName("HasSizes");
+                entity.Property(e => e.Img).HasColumnName("img");
+
+                entity.Property(e => e.Inexistance).HasColumnName("inexistance");
 
                 entity.Property(e => e.Price).HasColumnName("price");
 
-                entity.Property(e => e.ProductDescription)
-                    .HasColumnName("productDescription")
-                    .IsUnicode(false);
+                entity.Property(e => e.Productdescription).HasColumnName("productdescription");
 
-                entity.Property(e => e.ProductName)
-                    .HasColumnName("productName")
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
+                entity.Property(e => e.Productname)
+                    .HasColumnName("productname")
+                    .HasMaxLength(100);
 
-                entity.Property(e => e.ProductSize)
-                    .HasColumnName("productSize")
-                    .HasMaxLength(10)
-                    .IsUnicode(false);
+                entity.Property(e => e.Productsize)
+                    .HasColumnName("productsize")
+                    .HasMaxLength(10);
             });
 
             OnModelCreatingPartial(modelBuilder);
